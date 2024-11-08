@@ -1,0 +1,4 @@
+/* workaround for https://github.com/readthedocs/sphinx_rtd_theme/issues/301 */
+.eqno {
+    float: right;
+}
