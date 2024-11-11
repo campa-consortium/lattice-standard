@@ -13,7 +13,7 @@ Current Roster
 ^^^^^^^^^^^^^^
 
 - Jean-Luc Vay (chair)
-- ...
+- David Sagan (chair)
 
 See: `GitHub team <https://github.com/orgs/campa-consortium/teams/...>`__
 
@@ -24,15 +24,15 @@ Members of the steering committee (SC) can change organizational settings, do ad
 SC members can call votes for decisions (technical or governance).
 
 The SC can veto decisions of the technical committee (TC) by voting in the SC.
-The TC can overwrite a veto with a 2/3rd majority vote in the TC.
-Decisions are documented in ...
+The TC can overwrite a veto with a 2/3 majority vote in the TC.
+Decisions are documented in the `weekly developer meeting notes <https://docs.google.com/document/d/1dh10nDcaPhTTYGVrCbvaA_RylgRGqUY9yDYUtdX04f8/edit>`__ and/or in the GitHub repository.
 
 The SC can change the governance structure, but only in a unanimous vote.
 
 Decision Process
 ^^^^^^^^^^^^^^^^
 
-Decision of the SC usually happen in the weekly meetings, via e-mail or public chat.
+Decision of the SC usually happen in the weekly developer meetings, via e-mail or public chat.
 
 Decisions are made in a non-confidential manner, by majority on the cast votes of SC members.
 Votes can be cast in asynchronous manner, e.g., over the time of one to two weeks.
@@ -42,7 +42,7 @@ Appointment Process
 ^^^^^^^^^^^^^^^^^^^
 
 Appointed by current SC members in an unanimous vote.
-As a SC member, regularly attending and contributing to the weekly meetings is expected.
+As a SC member, regularly attending and contributing to the weekly developer meetings is expected.
 
 SC members can resign or be removed by majority vote, e.g., due to inactivity, bad acting or other reasons.
 
@@ -54,6 +54,8 @@ Current Roster
 ^^^^^^^^^^^^^^
 
 - Jean-Luc Vay
+- David Sagan
+- Chad Mitchell
 - ...
 
 See: `GitHub team <https://github.com/orgs/campa-consortium/teams/...>`__
@@ -71,12 +73,12 @@ The TC can propose governance changes to the SC.
 Decision Process
 ^^^^^^^^^^^^^^^^
 
-Discussion in the TC usually happens in the weekly meetings.
+Discussion in the TC usually happens in the weekly developer meetings.
 
-If someone calls for a vote to make a decision: majority based on the cast votes; we need 50% of the committee participating to vote. In the absence of a quorum, the SC will decide according to its voting rules.
+If someone calls for a vote to make a decision: 2/3 majority based on the cast votes; we need 50% of the committee participating to vote. In the absence of a quorum, the SC will decide according to its voting rules.
 
 Votes are cast in a non-confidential manner.
-Decisions are documented in ...
+Decisions are documented in the `weekly developer meeting notes <https://docs.google.com/document/d/1dh10nDcaPhTTYGVrCbvaA_RylgRGqUY9yDYUtdX04f8/edit>`__ and/or in the GitHub repository.
 
 TC members can individually appoint new contributors, unless a vote is called on an individual.
 
@@ -84,7 +86,7 @@ Appointment Process
 ^^^^^^^^^^^^^^^^^^^
 
 TC members are the maintainers of Lattice Standard.
-As a TC member, regularly attending and contributing to the weekly meetings is expected.
+As a TC member, regularly attending and contributing to the weekly developer meetings is expected.
 
 One is appointed to the TC by the steering committee, in a unanimous vote, or by majority vote of the TC.
 The SC can veto appointments.
@@ -106,7 +108,7 @@ Role
 
 Contributors are valuable, vetted developers of Lattice Standard.
 Contributions can be in many forms and not all need to be code contributions.
-Examples include code pull requests, support in issues & user discussions, writing and updating documentation, writing tutorials, visualizations, R&D on algorithms, testing and benchmarking, etc.
+Examples include contributing to pull requests, issues, user discussions, documentation, tutorials, etc.
 Contributors can participate in developer meetings and weigh in on discussions.
 Contributors can "triage" (add labels) to pull requests, issues, and GitHub discussion pages.
 Contributors can comment and review PRs (but not merge).
