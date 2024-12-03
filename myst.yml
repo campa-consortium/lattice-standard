@@ -1,0 +1,17 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 04669581-a5a2-47e4-8d37-bf222bc14229
+  title: Accelerator Lattice Standard
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/campa-consortium/lattice-standard
+  toc:
+    - file: 'README.md'
+    - file: 'GOVERNANCE.md'
+    - file: 'CONTRIBUTING.md'
+    - file: 'section_documentation.md'
+    - file: 'section_example.md'
+site:
+  template: book-theme
