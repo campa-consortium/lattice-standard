@@ -8,7 +8,7 @@
 5) Rename what we just cloned:  call it "mainline:
 `git remote rename origin mainline`
 6) Add your remote fork in order to track it locally:
-`git remote add cemitch99 git@github.com:cemitch99/lattice-standard.git`
+`git remote add cemitch99 https://github.com/cemitch99/lattice-standard.git`
 
 **To be done each time to submit a PR, in your local repo:**
 1) Change into the working directory for your local repo:
