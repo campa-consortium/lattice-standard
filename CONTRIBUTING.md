@@ -3,7 +3,7 @@
 Follow these steps **only once**:
 1. Go to https://github.com/campa-consortium/lattice-standard.
 
-2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "cemitch99").
+2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
 3. Go back to https://github.com/campa-consortium/lattice-standard and copy the url of the repo:
 (e.g., https://github.com/campa-consortium/lattice-standard.git)
@@ -20,7 +20,7 @@ git remote rename origin mainline
 
 6.  Add your remote repository in order to track it locally:
 ```
-git remote add cemitch99 https://github.com/cemitch99/lattice-standard.git
+git remote add username https://github.com/username/lattice-standard.git
 ```
 
 Follow these steps **each time you submit a pull request**:
@@ -57,7 +57,7 @@ git commit -m "Add element template."
 
 7. Push the changes to your fork remote repository:
 ```
-git push -u cemitch99 add_template
+git push -u username add_template
 ```
 
 8. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to  https://github.com/cemitch99/lattice-standard/pull/new/add_template.
