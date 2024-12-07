@@ -58,7 +58,8 @@ By convention, element names in ALS will be upper camel case.
 
 ## Lattice Branches
 
-A lattice **Branch** is essentially an ordered array of lattice elements.
+A lattice **Branch** is essentially an ordered array of lattice elements that gives the physical
+sequence to be tracked through.
 In the simplist case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicat tracking.
 
