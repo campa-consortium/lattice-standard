@@ -28,7 +28,7 @@ elements into lines which beams of particles or X-rays can move through, etc.
 
 ## What ALS Is Not
 
-ALS does not define any particular grammer to implemement the ALS schema. Rather, there are associated
+ALS does not define any particular grammar to implemement the ALS schema. Rather, there are associated
 language specific standards that define grammers for YAML, JSON, Python, etc. Along with these
 associated standards, there are packages that implement translation between lattice files and a representational
 internal format defined by the package.
