@@ -55,7 +55,7 @@ git add pull_request_element_template.md
 git commit -m "Add element template."
 ```
 
-7. Push the changes to your fork remote repository:
+7. Push the changes to your fork:
 ```
 git push -u username add_template
 ```
