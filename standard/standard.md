@@ -49,7 +49,7 @@ All `keywords` in this standard are case-sensitive.
 The basic building block used to describe an accelerator is the lattice \vn{element}. Typically,
 a lattice element is something physical like a bending magnet or an electrostatic
 quadrupole, or a diffracting crystal. A lattice element may define a region in space 
-distinguished by the presense of (possibly time-varying) electromagnetic fields,
+distinguished by the presence of (possibly time-varying) electromagnetic fields,
 materials, apertures and other possible engineered structures. However, lattice elements
 are not restricted to being something physical and may, for example, just mark a particular point in space
 (EG: **Marker** elements), or may designate where beam lines intersect (**Fork** elements).
