@@ -15,3 +15,5 @@ project:
     - file: 'section_example.md'
 site:
   template: book-theme
+  domains:
+    - ezoni.curve.space
