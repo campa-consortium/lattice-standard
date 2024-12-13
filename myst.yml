@@ -2,17 +2,23 @@
 version: 1
 project:
   id: 04669581-a5a2-47e4-8d37-bf222bc14229
-  title: Accelerator Lattice Standard
+  title: 'Particle Accelerator Description Standard'
   # description:
   # keywords: []
   # authors: []
   github: https://github.com/campa-consortium/lattice-standard
   toc:
-    - file: 'README.md'
-    - file: 'GOVERNANCE.md'
-    - file: 'CONTRIBUTING.md'
-    - file: 'section_documentation.md'
-    - file: 'section_example.md'
+    - file: 'front_matter/introduction.md'
+    - title: 'Front Matter'
+      children:
+        - file: 'front_matter/organization.md'
+        - file: 'front_matter/governance.md'
+        - file: 'front_matter/contributing.md'
+        - file: 'front_matter/doc_editing_setup.md'
+    - title: 'Lattice Standard'
+      children:
+        - file: 'standard/introduction.md'
+        - file: 'standard/element_parameter.md'
 site:
   template: book-theme
   domains:

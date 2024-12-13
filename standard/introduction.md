@@ -1,4 +1,4 @@
-# Accelerator Lattace Standard
+# Introduction
 
 ## Overview
 
