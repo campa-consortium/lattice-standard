@@ -16,6 +16,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: 0 # TODO remove this once deployment domain is finalized
     steps:
       - name: Deploy 🚀
         uses: curvenote/action-myst-publish@v1
