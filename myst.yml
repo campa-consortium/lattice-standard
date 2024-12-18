@@ -13,7 +13,7 @@ project:
       children:
         - file: 'front_matter/governance.md'
         - file: 'front_matter/contributing.md'
-        - file: 'front_matter/doc_editing_setup.md'
+        - file: 'front_matter/how_to_write_docs.md'
     - title: 'Lattice Standard'
       children:
         - file: 'standard/introduction.md'
