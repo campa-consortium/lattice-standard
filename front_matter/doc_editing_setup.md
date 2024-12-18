@@ -1,4 +1,6 @@
-# Documentation
+# Documentation Editing Setup
+
+The documentation uses the [MyST](https://mystmd.org/) markup language. 
 
 Install the following packages within an existing conda environment:
 ```{code} bash

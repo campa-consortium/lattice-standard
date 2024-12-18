@@ -1,4 +1,4 @@
-# Contributing
+# How to Contribute
 
 Follow these steps **only once**:
 1. Go to https://github.com/campa-consortium/lattice-standard.
