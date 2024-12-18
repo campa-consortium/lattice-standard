@@ -4,7 +4,7 @@ This standard is an effort to create a standard to promote lattice information e
 
 ## Scope
 
-The standard focusus on the physical layout and properties of a machine.
+The standard focuses on the physical layout and properties of a machine.
 This excludes description of tracking of particles including collective effects.
 
 ## Participation
