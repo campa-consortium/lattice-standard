@@ -38,3 +38,5 @@ You are now ready to edit the markdown files that compose the documentation!
 The content displayed in your web browser will update automatically as you edit.
 
 If you add new markdown files, do not forget to add them to the table of contents defined in the MyST configuration file `myst.yml`.
+
+Finally, once you are happy with your changes, do not forget to commit and push them to your branch and open a pull request on GitHub.
