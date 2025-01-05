@@ -58,10 +58,20 @@ By convention, element names in ALS will be upper camel case.
 
 ## Lattice Branches
 
-A lattice **Branch** is essentially an ordered array of lattice elements that gives the physical
-sequence to be tracked through.
+A lattice **branch** holds a collection of lattice elements. 
+There are two types of branches, one type, called "tracking branches", holds
+an ordered array of lattice elements that gives a
+sequence of elements to be tracked through. A tracking branch can represent something like a
+storage ring, transfer line or Linac.
 In the simplist case, a program can track through the elements one element at a time.
-However, lattice elements may overlap which will naturally complicat tracking.
+However, lattice elements may overlap which will naturally complicate tracking.
+
+The other type of branch, called "lord" branches are used to hold lattice elements that help describe:
+- Support elements (Girders)
+- Overlapping elements (Superposition)
+- Situations where an element is transversed multiple times as in an ERL or in opposite directions
+as in a colliding beam machine (Multipass)
+Lord branches will be explained in detail in later sections.
 
 ## Lattices
 
@@ -77,5 +87,5 @@ This is used to simulate forking beam lines such as a connections to a transfer 
 X-ray beam line. The **branch** from which other **branches** fork but is not forked to by any
 other branch is called a **root** branch.
 
-A lattice may contain multiple **root branches. For example, a pair of intersecting storage
+A lattice may contain multiple **root** branches. For example, a pair of intersecting storage
 rings will generally have two root branches, one for each ring.
