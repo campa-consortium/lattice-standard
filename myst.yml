@@ -18,6 +18,8 @@ project:
       children:
         - file: 'source/standard/introduction.md'
         - file: 'source/standard/element_parameter.md'
+        - file: 'source/coordinates.md'
+
 site:
   template: book-theme
   #domains:
