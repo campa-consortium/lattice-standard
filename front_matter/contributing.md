@@ -5,12 +5,14 @@ Follow these steps **only once**:
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
-3. Go back to https://github.com/campa-consortium/lattice-standard and copy the url of the repo:
-(e.g., https://github.com/campa-consortium/lattice-standard.git)
+3. Go back to https://github.com/campa-consortium/lattice-standard, click `Code` > `SSH`, and copy the url of the repo:
+(e.g., git@github.com:campa-consortium/lattice-standard.git)
 
-4. On your local machine, from the terminal, clone the main repository:
+The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
+
+5. On your local machine, from the terminal, clone the main repository:
 ```
-git clone https://github.com/campa-consortium/lattice-standard.git
+git clone git@github.com:campa-consortium/lattice-standard.git
 ```
 
 5. Rename what we just cloned:  call it "mainline":
@@ -20,7 +22,7 @@ git remote rename origin mainline
 
 6.  Add your remote repository in order to track it locally:
 ```
-git remote add username https://github.com/username/lattice-standard.git
+git remote add username git@github.com:campa-consortium/lattice-standard.git
 ```
 
 Follow these steps **each time you submit a pull request**:
