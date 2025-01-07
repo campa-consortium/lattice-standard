@@ -10,7 +10,7 @@ This excludes description of tracking of particles including collective effects.
 ## Participation
 
 There are weekly (more or less) meetings to discuss development of the lattice standard.
-To participate in the creation of the lattice standard, please contact [Jean-Luc Vay](https://https://github.com/jlvay) to be put on the mailing list.
+To participate in the creation of the lattice standard, please contact [Jean-Luc Vay](https://github.com/jlvay) to be put on the mailing list.
 
 ## Roadmap
 
