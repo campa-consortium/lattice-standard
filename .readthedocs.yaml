@@ -11,11 +11,8 @@ build:
     python: "3.13"
 
   commands:
-    # Write down your commands here to:
-    #
-    #  - Install the dependencies of your project
-    #  - Build the documentation
-    #  - Save the generated files in $READTHEDOCS_OUTPUT/html
+    - myst build --html
+    - mv _build/html $READTHEDOCS_OUTPUT/html
 
 # Optionally, but recommended,
 # declare the Python requirements required to build your documentation
