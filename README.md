@@ -2,6 +2,9 @@
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
 
+[Access the online documents:](https://campa-lattice.readthedocs.io)
+[![Documentation Status](https://readthedocs.org/projects/campa-lattice/badge/?version=latest)](https://campa-lattice.readthedocs.io)
+
 ## Scope
 
 As part of this effort, we focus on the physical layout and properties of a machine.
