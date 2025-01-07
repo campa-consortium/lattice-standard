@@ -13,10 +13,9 @@ build:
   # custom build process
   # https://docs.readthedocs.io/en/stable/build-customization.html#install-dependencies-with-uv
   commands:
+    # dependencies
+    - mamba install -c conda-forge mystmd
     # build
     - myst build --html
     # deploy
     - mv _build/html $READTHEDOCS_OUTPUT/html
-
-conda:
-  environment: conda.yml

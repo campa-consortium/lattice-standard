@@ -1,9 +1,0 @@
-name: readthedocs
-
-channels:
-  - conda-forge
-  - nodefaults
-
-dependencies:
-  - python
-  - mystmd
