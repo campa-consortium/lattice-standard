@@ -14,11 +14,7 @@ build:
   # https://docs.readthedocs.io/en/stable/build-customization.html#install-dependencies-with-uv
   commands:
     # dependencies
-    - asdf plugin add uv
-    - asdf install uv latest
-    - asdf global uv latest
-    # - uv sync --extra docs --frozen
-    - uv pip sync requirements.txt
+    - pip install -r requirements.txt
     # build
     - myst build --html
     # deploy
