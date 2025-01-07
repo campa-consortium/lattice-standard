@@ -18,4 +18,5 @@ build:
     # build
     - myst build --html
     # deploy
+    - mkdir -p $READTHEDOCS_OUTPUT
     - mv _build/html $READTHEDOCS_OUTPUT/html
