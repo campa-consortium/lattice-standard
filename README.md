@@ -1,6 +1,10 @@
+[![Documentation Status](https://readthedocs.org/projects/campa-lattice/badge/?version=latest)](https://campa-lattice.readthedocs.io)
+
 # Accelerator Lattice Standard
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
+
+[Online documents.](https://campa-lattice.readthedocs.io)
 
 ## Scope
 
