@@ -2,11 +2,11 @@
 
 ## Overview
 
-The Accelerator Lattace Standard (ALS) defines a standard for the sharing of lattice information to describe
+The Accelerator Lattice Standard (ALS) defines a standard for the sharing of lattice information to describe
 particle accelerators and storage rings. ALS aims to promote:
 
  - portability between various applications and differing algorithms
- - a unified open-access description for scientific data (publishing and archiving)
+ - a unified open access description for scientific data (publishing and archiving)
  - a unified description for post-processing, visualization and analysis.
 
 ALS is able to describe the connections between various things
@@ -16,7 +16,7 @@ based lattice is able to
 hold all the information about an entire machine complex from beam creation to dump lines enabling a 
 single lattice to be used as the basis of start-to-end simulations.
 
-ALS is built to be easily customizable so that custom information may be interted by a program into a lattice.
+ALS is built to be easily customizable so that custom information may be inserted by a program into a lattice.
 This custom information is generally not usable by other programs but can be useful when a program accesses
 lattice files that it generated. 
 
@@ -28,7 +28,7 @@ elements into lines which beams of particles or X-rays can move through, etc.
 
 ## What ALS Is Not
 
-ALS does not define any particular grammar to implemement the ALS schema. Rather, there are associated
+ALS does not define any particular grammar to implement the ALS schema. Rather, there are associated
 language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
 associated standards, there are packages that implement translation between lattice files and a representational
 internal format defined by the package.

@@ -1,0 +1,22 @@
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 2
+
+# Set the OS, Python version, and other tools you might need
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "mambaforge-latest"
+
+  # custom build process
+  # https://docs.readthedocs.io/en/stable/build-customization.html#install-dependencies-with-uv
+  commands:
+    # dependencies
+    - mamba install -c conda-forge mystmd
+    # build
+    - myst build --html
+    # deploy
+    - mkdir -p $READTHEDOCS_OUTPUT
+    - mv _build/html $READTHEDOCS_OUTPUT/html
