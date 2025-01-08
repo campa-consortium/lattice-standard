@@ -389,7 +389,9 @@ where {math}`\theta_t` is the `ref_tilt` angle. The {math}`\bf L` vector for a `
 ```
 where {math}`\alpha_b` is the bend [angle](#s:bend) and {math}`\rho` being the bend radius
 ({math}`\rho`). Notice that since {math}`\bf u` is perpendicular to {math}`z`, the curvilinear reference coordinate
-system has no "torsion". That is, it is a Frenet-Serret coordinate system.
+system has no "torsion". Note: The branch coordinate system can be related to a Frenet-Serret coordinate system but 
+branch coordinates are not the same since Frenet-Serret coordinates use the radial direction in a bend as a coordinate axis while
+with branch coordinates the radial direction can be anywhere in the {math}`(x,y)` plane.
 
 Note: An alternative equation for {math}`\bf S` for a bend is
 ```{math}
