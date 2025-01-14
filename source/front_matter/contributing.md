@@ -62,6 +62,6 @@ git commit -m "Add element template."
 git push -u username add_template
 ```
 
-8. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to  https://github.com/cemitch99/lattice-standard/pull/new/add_template.
+8. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/cemitch99/lattice-standard/pull/new/add_template](https://github.com/cemitch99/lattice-standard/pull/new/add_template).
 
 9. Add a title and additional information relevant to the pull request (as needed).

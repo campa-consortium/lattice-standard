@@ -1,0 +1,26 @@
+# For local development, create the environment like this:
+#   conda env create -y -f conda.yml
+#   conda activate lattice-standard
+#
+name: lattice-standard
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - docutils
+  - python
+  - myst-parser
+  - pip
+  - pybtex
+  - pygments
+  - recommonmark
+  - sphinx
+  - sphinx-autobuild
+  - sphinx-book-theme
+  - sphinx-copybutton
+  - sphinx-design
+  - sphinxcontrib-bibtex
+  - sphinxcontrib-napoleon
+# - sphinx_rtd_theme

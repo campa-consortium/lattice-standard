@@ -10,13 +10,13 @@ build:
   tools:
     python: "mambaforge-latest"
 
-  # custom build process
-  # https://docs.readthedocs.io/en/stable/build-customization.html#install-dependencies-with-uv
-  commands:
-    # dependencies
-    - mamba install -c conda-forge mystmd
-    # build
-    - myst build --html
-    # deploy
-    - mkdir -p $READTHEDOCS_OUTPUT
-    - mv _build/html $READTHEDOCS_OUTPUT/html
+sphinx:
+  configuration: source/conf.py
+
+conda:
+  environment: conda.yml
+
+formats:
+  - htmlzip
+  - pdf
+  - epub
