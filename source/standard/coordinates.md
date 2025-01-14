@@ -16,7 +16,7 @@ math:
 :label: f:coords
 :name: Floor coordinate system
 
-The `floor` coordinate system
+The `floor` rectangular (Cartesian) coordinate system
 is independent of the accelerator.  The `branch` curvilinear coordinate system follows the bends
 of the accelerator. The `branch reference curve` is the {math}`x = y = 0` curve of the curvilinear coordinate
 system. Each lattice element has `element body` coordinates which, if the element has no
@@ -26,7 +26,7 @@ alignment shifts (not "misaligned"), is the same as the `branch` coordinates.
 %-----------------------------------------------------------------------------
 
 The lattice standard uses three coordinate systems as illustrated in the figure above. 
-First, the `floor` coordinates are coordinates independent of the accelerator.
+First, the `floor` coordinates are rectangular coordinates independent of the accelerator.
 The position of the accelerator itself as well as external objects like the building the
 accelerator is in  may be described using `floor` coordinates.
 
@@ -45,7 +45,7 @@ The "nominal" position of a lattice element is the position of the element witho
 [position and orientation shifts](#s:align.g)
 (which are sometimes referred to as "misalignments"). 
 Each lattice element has "`element body`"
-coordinates which are attached to the physical element and the electric and magnetic
+coordinates which are attached to the physical element, and the electric and magnetic
 fields of an element are described with respect to `body` coordinates.  
 If an element has no
 alignment shifts, the `body` coordinates of the element are aligned with the 
@@ -64,8 +64,8 @@ The transformation between `branch` and `body` coordinates is given in
 Lattice elements can be imagined as "LEGO blocks" which
 fit together to form the branch coordinate system. How elements
 join together is determined in part by their entrance and exit coordinate frames. A) For
-straight line elements the entrance and exit frames are colinear. B) For bends elements, the 
-transformation from entrance to exit coordinates is a rotation about the bend center.
+straight line elements the entrance and exit frames are colinear. B) For bend elements, the 
+transformation from entrance to exit coordinates is a rotation about the bend center of curvature.
 C) For `Patch` and `floor_shift` elements the 
 exit frame may be arbitrarily positioned with respect to the entrance frame.
 ```
@@ -110,7 +110,7 @@ will have a discontinuity.
 
 A) The branch coordinates are constructed by
 connecting the `downstream` reference frame of one element with the `upstream` reference frame
-of the next element in the branch. Coordinates shown is for the mating of element `A` to element
+of the next element in the branch. Coordinates shown are for the mating of element `A` to element
 `B`.  B) Example with drift element `dft` followed by a bend `bnd`. Both elements are
 unreversed. C) Similar to (B) but in this case element `bnd` is reversed.  D) Similar to (C) but
 in this case a reflection patch `P` has been added in between `dft` and `bnd`.
@@ -163,7 +163,7 @@ The {math}`(x,z)` coordinates are drawn at the entrance end of the elements and 
 always point towards the element's exit end.
 [](#f:patch.between)B shows a line
 with an unreversed drift named `dft` connected to an unreversed bend named
-`bnd`. [](#f:patch.between)C shows the same line but with `bnd` reversed. This is like
+`bnd`. [](#f:patch.between)C shows the same line but with `bnd` reversed.
 This gives an unphysical situation since a
 particle traveling through `dft` will "fall off" when it gets to the drift's end.
 [](#f:patch.between)D shows the same line as in [](#f:patch.between)C with the addition
@@ -389,7 +389,7 @@ where {math}`\theta_t` is the `ref_tilt` angle. The {math}`\bf L` vector for a `
 ```
 where {math}`\alpha_b` is the bend [angle](#s:bend) and {math}`\rho` being the bend radius
 ({math}`\rho`). Notice that since {math}`\bf u` is perpendicular to {math}`z`, the curvilinear reference coordinate
-system has no "torsion". Note: The branch coordinate system can be related to a Frenet-Serret coordinate system but 
+system has no "torsion". Note: The branch coordinate system can be related to a Frenet-Serret coordinate system, but 
 branch coordinates are not the same since Frenet-Serret coordinates use the radial direction in a bend as a coordinate axis while
 with branch coordinates the radial direction can be anywhere in the {math}`(x,y)` plane.
 
