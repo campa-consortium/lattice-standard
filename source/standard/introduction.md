@@ -59,7 +59,7 @@ By convention, element names in ALS will be upper camel case.
 ## Lattice Branches
 
 A lattice **branch** holds a collection of lattice elements. 
-There are two types of branches.  One type, called a "tracking branch", holds
+There are two types of branches. One type, called a "tracking branch", holds
 an ordered array of lattice elements that gives a
 sequence of elements to be tracked through. A tracking branch can represent something like a
 storage ring, transfer line or Linac.

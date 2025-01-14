@@ -1,9 +1,3 @@
----
-# LaTeX frontmatter equivalent to newcommand https://mystmd.org/guide/math#math-macros
-math:
-  '\bfV': '{\bf V}'
----
-
 (c:coords)=
 # Coordinates
 
@@ -31,14 +25,19 @@ accelerator is in  may be described using `floor` coordinates.
 
 It is inconvenient to describe the position lattice elements and the position of a 
 particle beam using the `floor` coordinate system so, for each tracking lattice branch,
-a [](#s:branch.coords}  is used. This curvilinear coordinate
+a [](#s:branch.coords)  is used. This curvilinear coordinate
 system defines the nominal position of the lattice elements. The relationship between the
 `branch` and `floor` coordinate systems is described in section [](#s:floor). 
 Lord (non-tracking) branches do not have an associated branch coordinate system.
 
 The `branch reference curve` is the {math}`x = y = 0` curve of the curvilinear coordinate system. 
 The branch reference curve does not have to be continuous and, in particular, the coordinate
-system through a `Patch` element will generally be discontinuous.
+system through a `Patch` element will generally be discontinuous. If there are no bends with a finite
+`tilt_ref` [](#s:bend), and if the beginning element in the branch does not have any orientation
+shifts, the branch reference curve will be in the {math}`(x,z)` plane with {math}`y = 0`. Since 
+most machines are essentially horizontal, the {math}`x` coordinate is typically thought of as the
+"horizontal" coordinate and the {math}`y` coordinate is typically thought of as the "vertical"
+coordinate.
  
 The "nominal" position of a lattice element is the position of the element without any
 [position and orientation shifts](#s:align.g)
@@ -110,9 +109,9 @@ will have a discontinuity.
 A) The branch coordinates are constructed by
 connecting the `downstream` reference frame of one element with the `upstream` reference frame
 of the next element in the branch. Coordinates shown are for the mating of element `A` to element
-`B`.  B) Example with drift element `dft` followed by a bend `bnd`. Both elements are
-unreversed. C) Similar to (B) but in this case element `bnd` is reversed.  D) Similar to (C) but
-in this case a reflection patch `P` has been added in between `dft` and `bnd`.
+`B`.  B) Example with drift element `dft1` followed by a bend `bnd1`. Both elements are
+unreversed. C) Similar to (B) but in this case element `bnd1` is reversed.  D) Similar to (C) but
+in this case a reflection patch `P` has been added in between `dft1` and `bnd1`.
 In (B), (C), and (D) the {math}`(x,z)` coordinates are drawn at the `entrance` end of the elements. 
 The {math}`y` coordinate is always out of the page for this example.
 ```
@@ -161,12 +160,12 @@ with the downstream frame of element `A` mated to the upstream frame of element 
 The {math}`(x,z)` coordinates are drawn at the entrance end of the elements and {math}`z` will 
 always point towards the element's exit end.
 {numref}`f:patch.between`B shows a line
-with an unreversed drift named `dft` connected to an unreversed bend named
-`bnd`. {numref}`f:patch.between`C shows the same line but with `bnd` reversed.
+with an unreversed drift named `dft1` connected to an unreversed bend named
+`bnd1`. {numref}`f:patch.between`C shows the same line but with `bnd1` reversed.
 This gives an unphysical situation since a
-particle traveling through `dft` will "fall off" when it gets to the drift's end.
+particle traveling through `dft1` will "fall off" when it gets to the drift's end.
 {numref}`f:patch.between`D shows the same line as in {numref}`f:patch.between`C with the addition
-of a [`reflection patch`](#s:reflect.patch) `P` between `dft` and `bnd` to give a plausible geometry. 
+of a [`reflection patch`](#s:reflect.patch) `P` between `dft1` and `bnd1` to give a plausible geometry. 
 In this case, the patch rotates the coordinate system around the {math}`y`-axis by 180{math}`^o` 
 (in this example leaving the {math}`y`-axis invariant). This illustrates why
 a reflection patch is always needed between reversed and unreversed elements.
@@ -175,9 +174,9 @@ Notes:
 - Irrespective of whether elements are reversed or not, the branch {math}`(x,y,z)` coordinate system
 at all {math}`s`-positions will always be a right-handed coordinate system.
 
-- Care must be take when using reversed elements. For example, if the field of the `bnd` element in
+- Care must be take when using reversed elements. For example, if the field of the `bnd1` element in
 the above example is appropriate for, say, electrons, that is, electrons will be bent in a clockwise
-fashion going through `bnd`, an electron going in a forward direction through the
+fashion going through `bnd1`, an electron going in a forward direction through the
 line in {numref}`f:patch.between`D will be lost in the bend
 (the {math}`y`-axis and hence the field is in the same direction for both cases so electrons 
 will still be bent in a clockwise fashion but with {numref}`f:patch.between`D a particle needs to be 
