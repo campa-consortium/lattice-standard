@@ -11,7 +11,7 @@ build:
     python: "mambaforge-latest"
 
 sphinx:
-  configuration: conf.py
+  configuration: source/conf.py
 
 conda:
   environment: conda.yml
