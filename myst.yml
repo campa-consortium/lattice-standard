@@ -8,17 +8,17 @@ project:
   # authors: []
   github: https://github.com/campa-consortium/lattice-standard
   toc:
-    - file: 'front_matter/introduction.md'
+    - file: 'source/front_matter/introduction.md'
     - title: 'Front Matter'
       children:
-        - file: 'front_matter/governance.md'
-        - file: 'front_matter/contributing.md'
-        - file: 'front_matter/how_to_write_docs.md'
+        - file: 'source/front_matter/governance.md'
+        - file: 'source/front_matter/contributing.md'
+        - file: 'source/front_matter/how_to_write_docs.md'
     - title: 'Lattice Standard'
       children:
-        - file: 'standard/introduction.md'
-        - file: 'standard/element_parameter.md'
-        - file: 'standard/coordinates.md'
+        - file: 'source/standard/introduction.md'
+        - file: 'source/standard/element_parameter.md'
+        - file: 'source/standard/coordinates.md'
 site:
   template: book-theme
   #domains:
