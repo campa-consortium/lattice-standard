@@ -59,14 +59,14 @@ By convention, element names in ALS will be upper camel case.
 ## Lattice Branches
 
 A lattice **branch** holds a collection of lattice elements. 
-There are two types of branches, one type, called "tracking branches", holds
+There are two types of branches.  One type, called a "tracking branch", holds
 an ordered array of lattice elements that gives a
 sequence of elements to be tracked through. A tracking branch can represent something like a
 storage ring, transfer line or Linac.
 In the simplist case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicate tracking.
 
-The other type of branch, called "lord" branches are used to hold lattice elements that help describe:
+The other type of branch, called a "lord" branch, is used to hold lattice elements that help describe:
 - Support elements (Girders)
 - Overlapping elements (Superposition)
 - Situations where an element is transversed multiple times as in an ERL or in opposite directions
