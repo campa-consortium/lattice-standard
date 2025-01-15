@@ -76,7 +76,7 @@ Most elements in a tracking branch have an "`entrance`" and an "`exit`" coordina
 illustrated in the above figure.
 These coordinate frames are attached to the element and are part of the `element body coordinates`. 
 `Fiducial` elements ([xxx](#s:fiducial)) are an excption. 
-`Fiducial` elements only have a single coordinate frame that is tied to global coordinates 
+`Fiducial` elements only have a single coordinate frame that is tied to floor coordinates 
 and construction of the branch coordinate system starts at this coordinate system. 
 See [xxx](#s:fiducial) for more details.
 Note that `Girder` elements ([xxx](#s:girder)) also only have a single coordinate frame but they
@@ -109,8 +109,9 @@ will have a discontinuity.
 A) The branch coordinates are constructed by
 connecting the `downstream` reference frame of one element with the `upstream` reference frame
 of the next element in the branch. Coordinates shown are for the mating of element `A` to element
-`B`.  B) Example with drift element `dft1` followed by a bend `bnd1`. Both elements are
-unreversed. C) Similar to (B) but in this case element `bnd1` is reversed.  D) Similar to (C) but
+`B`.  B) Example with drift element `dft1` followed by a bend `bnd1`. Both elements have normal
+(unreversed) orientation. 
+C) Similar to (B) but in this case element `bnd1` is reversed.  D) Similar to (C) but
 in this case a reflection patch `P` has been added in between `dft1` and `bnd1`.
 In (B), (C), and (D) the {math}`(x,z)` coordinates are drawn at the `entrance` end of the elements. 
 The {math}`y` coordinate is always out of the page for this example.
@@ -160,7 +161,7 @@ with the downstream frame of element `A` mated to the upstream frame of element 
 The {math}`(x,z)` coordinates are drawn at the entrance end of the elements and {math}`z` will 
 always point towards the element's exit end.
 {numref}`f:patch.between`B shows a line
-with an unreversed drift named `dft1` connected to an unreversed bend named
+with an normal (unreversed) orientation drift named `dft1` connected to a normal (unreversed) bend named
 `bnd1`. {numref}`f:patch.between`C shows the same line but with `bnd1` reversed.
 This gives an unphysical situation since a
 particle traveling through `dft1` will "fall off" when it gets to the drift's end.
@@ -168,7 +169,7 @@ particle traveling through `dft1` will "fall off" when it gets to the drift's en
 of a [`reflection patch`](#s:reflect.patch) `P` between `dft1` and `bnd1` to give a plausible geometry. 
 In this case, the patch rotates the coordinate system around the {math}`y`-axis by 180{math}`^o` 
 (in this example leaving the {math}`y`-axis invariant). This illustrates why
-a reflection patch is always needed between reversed and unreversed elements.
+a reflection patch is always needed between normal and reversed elements.
 
 Notes:
 - Irrespective of whether elements are reversed or not, the branch {math}`(x,y,z)` coordinate system
