@@ -25,7 +25,7 @@ accelerator is in  may be described using `floor` coordinates.
 
 It is inconvenient to describe the position lattice elements and the position of a 
 particle beam using the `floor` coordinate system so, for each tracking lattice branch,
-a [](#s:branch.coords)  is used. This curvilinear coordinate
+a "[branch](#s:branch.coords)" coordinate system is used. This curvilinear coordinate
 system defines the nominal position of the lattice elements. The relationship between the
 `branch` and `floor` coordinate systems is described in section [](#s:floor). 
 Lord (non-tracking) branches do not have an associated branch coordinate system.
