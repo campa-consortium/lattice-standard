@@ -18,4 +18,5 @@ front_matter/how_to_write_docs.md
 
 standard/introduction.md
 standard/element_parameter.md
+standard/coordinates.md
 ```

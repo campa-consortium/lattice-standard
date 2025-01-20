@@ -20,7 +20,9 @@ project:
         - file: 'source/standard/element_parameter.md'
         - 
         - file: 'lattice-and-beamline.md'
+        - file: 'source/standard/coordinates.md'
 site:
   template: book-theme
   #domains:
   #  - <username>-<project>.curve.space
+

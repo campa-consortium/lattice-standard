@@ -14,7 +14,8 @@ author = 'Jean-Luc Vay, David Sagan, Chad Mitchell, Axel Huebl, David Bruhwihler
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_parser', 'sphinx_design']
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = ["colon_fence", "amsmath"]
+numfig = True
 
 templates_path = ['_templates']
 exclude_patterns = []
