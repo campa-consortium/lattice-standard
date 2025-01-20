@@ -6,17 +6,17 @@ This standard is an effort to create a standard to promote lattice information e
 :maxdepth: 1
 :caption: Front Matter
 
-front_matter/introduction.md
-front_matter/governance.md
-front_matter/contributing.md
-front_matter/how_to_write_docs.md
+introduction.md
+governance.md
+contributing.md
+how_to_write_docs.md
 ```
 
 ```{toctree}
 :maxdepth: 1
 :caption: Standard
 
-standard/introduction.md
-standard/element_parameter.md
-standard/coordinates.md
+introduction.md
+element_parameters.md
+coordinates.md
 ```
