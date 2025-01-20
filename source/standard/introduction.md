@@ -65,7 +65,7 @@ However, lattice elements may overlap which will naturally complicate tracking.
 
 ## Lattices
 
-A **lattice is the root structure holding the information about a
+A **lattice** is the root structure holding the information about a
 ``machine``. A machine may be as simple as a line of elements (like the elements of a Linac) or
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
@@ -77,5 +77,10 @@ This is used to simulate forking beam lines such as a connections to a transfer 
 X-ray beam line. The **branch** from which other **branches** fork but is not forked to by any
 other branch is called a **root** branch.
 
-A lattice may contain multiple **root branches. For example, a pair of intersecting storage
+A lattice may contain multiple **root** branches. For example, a pair of intersecting storage
 rings will generally have two root branches, one for each ring.
+
+## Syntax Used in this Document
+
+While the standard itself is language agnostic, the description of the standard needs to use 
+some syntax and this syntax has been chosen to be YAML.
