@@ -185,10 +185,41 @@ This corresponds roughly to what is shown in {figref}`f:aperture`.
 If the boolean `absolute_vertices` is set `False`, which is the default,
 the vertex point positions are with respect to the `center` point. 
 That is, the vertex point positions in absolute terms are the positions given with each vertex plus
-the position of the `center`. If `absolute_vertices` is `True`, the positions ofby the
-vertex points are independent of the `center`.
+the position of the `center`. If `absolute_vertices` is `True`, the vertex point positions 
+are independent of the `center` point. The default position of the `center` is the origin.
 
+The `vertices` component of `wall2d` contains an ordered  list of vertex 
+`point`s with each one specifying an {math}`(x, y)` position. 
+In between any two `point`s, there can optionally be a single `radius` element.
+If there is a `radius` element, there can also be a  single `tilt` element between
+the `point`s but `tilt` can only be present if there is a `radius` present.
+There can also be a `radius` element and `tilt` element after the last `point` in the `vertices`list. 
+If these are present, they are considered to be between the last and fist `point`s in the list.
 
+The aperture is constructed by connecting consecutive `point`s in the `vertices` list along with
+connecting the last `point` to the first. If there is no `radius` between consecutive `point`s,
+the aperture follows a straight line between the points. If there is a `radius` element between
+two points, the aperture is either a circular arc or a section of an ellipse. 
+A `radius` can have either a single value or a list of two values. If a `radius` has a single
+value, this is the radius of the circular arc connecting the vertices. In this case, the `tilt`
+element may not be present. If the `radius` has two values, these are the half lengths of the 
+principal diameters. If the `tilt` is zero (the default), the ellipse is upright with the first 
+`radius` value being the {math}`x`-axis half width and the second value being the {math}`y`-axis
+half width. A non-zero `tilt` value rotates the ellipse by that amount. 
 
+In order to be able to quickly calculate whether a particle is inside or outside the
+aperture, the aperture shape has some restrictions. For one, 
+the vertex points must be arranged so that the angle of the vertex points 
+with respect to the `center` point is increasing. That is, for vertices {math}`v_i` and
+{math}`v_{i+1}` that are at angles {math}`\theta_i` and {math}`\theta_{i+1}` with respect
+to the `center` point
+```{math}
+  0 < \theta_{i+1} - \theta_{i} \pmod{2\pi} < \pi
+```
+Another restriction is that any half-line drawn from the `center` point out to infinity intersects
+the aperture at exactly one point. Finally, for a circular or elliptical arc, of
+the four possible solutions that connect the two vertex points at the ends of the arc, 
+the arc used is the arc of minimal length such that the center of the ellipse is on the same side
+as the `center` point with respect to a line drawn through the two points 
 
 
