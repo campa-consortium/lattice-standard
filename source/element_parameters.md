@@ -156,7 +156,7 @@ Using chemical formulas like `Cu` and `Fe` are the most portable.
 ### wall2d
 
 The `WALL2D` setting for `aperture_shape` is for defining an aperture using a 
-set of vertex points as illustrated in {fignum}`f:aperture`B. 
+set of vertex points as illustrated in {numref}`f:aperture`B. 
 Between vertex points, the aperture can can follow a straight line or the arc of an ellipse. 
 The vertex points are specified by setting the `wall2d` parameter. This parameter has three
 subcomponents
@@ -180,7 +180,7 @@ Aperture:
       - point: [-0.088, -0.021]    # V4
       - point: [0.023, -0.033]     # V5
 ```
-This corresponds roughly to what is shown in {figref}`f:aperture`.
+This corresponds roughly to what is shown in {numref}`f:aperture`.
 
 If the boolean `absolute_vertices` is set `False`, which is the default,
 the vertex point positions are with respect to the `center` point. 

@@ -1,3 +1,0 @@
-# Lattice Elements
-
-## Defining elements
