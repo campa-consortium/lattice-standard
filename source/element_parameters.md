@@ -63,6 +63,7 @@ aperture_at
 aperture_shifts_with_body
 wall2d
 material
+thickness
 ```
 
 ### aperture_at
@@ -85,7 +86,7 @@ The default is `ENTRANCE_END`.
 :name: f:aperture
 
 A) RECTANGULAR and ELLIPTICAL apertures. As drawn, `x_limit[1]` and `y_limit[1]` are 
-negative and `x_limit[2]` and `y_limit[2]` are positive. B) The VERTEX aperture is defined
+negative and `x_limit[2]` and `y_limit[2]` are positive. B) The `wall2d` aperture is defined
 by a set of vertices.
 ```
 
@@ -93,7 +94,7 @@ The `aperture_shape` parameter selects the shape of the aperture. Possible value
 ```{code} yaml
 RECTANGULAR   # Rectangular shape.
 ELLIPTICAL    # Elliptical shape.
-VERTEX        # Shape defined by set of vertices.
+WALL2D        # Shape defined by set of vertices.
 CUSTOM_SHAPE  # Shape defined outside of the lattice standard.
 ```
 
@@ -126,7 +127,7 @@ affects the placement of the aperture. The default is `False`.
 A common case where `misalignment_moves_aperture` would be `False` is when a beam pipe,
 which incorporates the aperture, is not physically touching the surrounding magnet element. 
 When tracking a particle, assuming that there are only apertures at the element ends, 
-the order of computation with `misalignment_moves_aperture` set to `False` is
+the order of computation with `misalignment_moves_aperture` set to `False` could be
 ```{code} yaml
   1) Start at upstream end of element
   2) Check upstream aperture if there is one.
@@ -136,7 +137,7 @@ the order of computation with `misalignment_moves_aperture` set to `False` is
   6) Check downstream aperture if there is one.
   7) End at downstream end of element.
 ```
-With `misalignment_moves_aperture` set to `True`, the computation order is 
+With `misalignment_moves_aperture` set to `True`, the computation order could be
 ```{code} YAML
   1) Start at upstream end of element
   2) Convert from branch coordinates to body coordinates.
@@ -147,26 +148,47 @@ With `misalignment_moves_aperture` set to `True`, the computation order is
   7) End at downstream end of element.
 ```
 
-### wall2d
-
-The `VERTEX` setting for `aperture_shape` is for defining an aperture using a 
-set of vertex points as illustrated in {fignum}`f:aperture`B. 
-Between vertex points, the aperture can can follow a straight line or the arc of an ellipse. 
-The vertex points are specified by setting the `wall2d` parameter. Example:
-```{code} yaml
-Aperture:
-  wall2d: 
-    - Vertex: [1.0, 4.0]
-    - Vertex: [-5.0, -1.0]
-    - Vertex: 
-        point: [1.0, -1.5)]
-        radius: [23.7, 37.5]
-        tilt: 0.45
-```
-Note that the vertices are ordered.
-
-**To be added: Further description of wall2d.**
-
 ### material
 
-Material of the aperture. Standard names include atomic formula.
+The `material` parameter sets the material of the aperture. 
+Using chemical formulas like `Cu` and `Fe` are the most portable.
+
+### wall2d
+
+The `WALL2D` setting for `aperture_shape` is for defining an aperture using a 
+set of vertex points as illustrated in {fignum}`f:aperture`B. 
+Between vertex points, the aperture can can follow a straight line or the arc of an ellipse. 
+The vertex points are specified by setting the `wall2d` parameter. This parameter has three
+subcomponents
+```{code} yaml
+center              # (x, y) center pointer.
+absolute_vertices   # Boolian. Default is False.
+vertices            # Ordered list of vertex points.
+```
+Example:
+```{code} yaml
+Aperture:
+  wall2d:
+    center: [-0.045, 0.011]
+    absolute_vertices: True
+    vertices:
+      - point: [0.023, 0.069]      # V1
+      - point: [-0.025, 0.067]     # V2
+      - radius: [0.08, 0.04]
+      - tilt: 0.12
+      - point: [-0.088, 0.036]     # V3
+      - point: [-0.088, -0.021]    # V4
+      - point: [0.023, -0.033]     # V5
+```
+This corresponds roughly to what is shown in {figref}`f:aperture`.
+
+If the boolean `absolute_vertices` is set `False`, which is the default,
+the vertex point positions are with respect to the `center` point. 
+That is, the vertex point positions in absolute terms are the positions given with each vertex plus
+the position of the `center`. If `absolute_vertices` is `True`, the positions ofby the
+vertex points are independent of the `center`.
+
+
+
+
+

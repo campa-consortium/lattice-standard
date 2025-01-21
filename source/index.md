@@ -6,7 +6,7 @@ This standard is an effort to create a standard to promote lattice information e
 :maxdepth: 1
 :caption: Front Matter
 
-introduction.md
+overview.md
 governance.md
 contributing.md
 how_to_write_docs.md
