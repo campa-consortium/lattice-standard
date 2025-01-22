@@ -165,6 +165,12 @@ center              # [m] Vector of [x, y] center point.
 absolute_vertices   # Boolian. Default is False.
 list                # Struct. Ordered list of vertex points.
 ```
+The `list` vector can have the components:
+```{code} yaml
+point       # [m] Vector of two real numbers.
+radius      # [m] Vector of single or two real numbers.
+tilt        # [rad/2pi] Ellipse tilt angle.
+```
 Example:
 ```{code} yaml
 Aperture:
