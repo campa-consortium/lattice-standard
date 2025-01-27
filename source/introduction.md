@@ -1,41 +1,5 @@
 # Introduction
 
-## Overview
-
-The Accelerator Lattice Standard (ALS) defines a standard for the sharing of lattice information to describe
-particle accelerators and storage rings. ALS aims to promote:
-
- - portability between various applications and differing algorithms
- - a unified open access description for scientific data (publishing and archiving)
- - a unified description for post-processing, visualization and analysis.
-
-ALS is able to describe the connections between various things
-from the connection of injection and extraction lines connected to a storage ring to the interaction region
-of colliding beam storage rings where particles are moving through magnets in opposite directions. An ALS
-based lattice is able to
-hold all the information about an entire machine complex from beam creation to dump lines enabling a 
-single lattice to be used as the basis of start-to-end simulations.
-
-ALS is built to be easily customizable so that custom information may be inserted by a program into a lattice.
-This custom information is generally not usable by other programs but can be useful when a program accesses
-lattice files that it generated. 
-
-
-## What ALS Is
-
-ALS is a schema that defines things like the names of various lattice element types, how to organize lattice
-elements into lines which beams of particles or X-rays can move through, etc. 
-
-## What ALS Is Not
-
-ALS does not define any particular grammar to implement the ALS schema. Rather, there are associated
-language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
-associated standards, there are packages that implement translation between lattice files and a representational
-internal format defined by the package.
-
-ALS does not define how particles are to be tracked through a lattice. ALS is for describing machines and
-not for defining how to simulate particle motion. 
-
 ## Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
@@ -75,7 +39,7 @@ Lord branches will be explained in detail in later sections.
 
 ## Lattices
 
-A **lattice is the root structure holding the information about a
+A **lattice** is the root structure holding the information about a
 ``machine``. A machine may be as simple as a line of elements (like the elements of a Linac) or
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
@@ -89,3 +53,84 @@ other branch is called a **root** branch.
 
 A lattice may contain multiple **root** branches. For example, a pair of intersecting storage
 rings will generally have two root branches, one for each ring.
+
+## Syntax Used in this Document
+
+ALS does not define any particular language to implement the ALS schema. Rather, there are associated
+language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
+associated standards, there are packages that implement translation between lattice files and a representational
+internal format defined by the package.
+
+While the standard itself is language agnostic, this document that describes the standard
+needs to use some syntax and this syntax is based upon YAML. Non-YAML syntax used here is:
+
+1. The {math}`N^{th}` item in a list is referred to using square brackets enclosing the index: `[N]`.
+For example:
+```{code} YAML
+Aperture:
+  name: ap1
+  x_limit: [-0.03, 0.03]
+```
+here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of `x_limit` respectively.
+
+2. The standard defines the following symbols which can be used in place of a value: 
+- `Inf`    # Infinity
+- `-Inf`   # Negative infinity
+- `NaN`    # Not a number
+
+Note: There is a difference between
+```{code} yaml
+this_group:
+  key1: value1
+  key2: value2
+  key3: value3
+```
+and
+```{code} yaml
+this_group:
+  - key1: value1
+  - key2: value2
+  - key3: value3
+```
+The first represents an unordered dictionary of key, value pairs and the second represents an ordered 
+dictionary.
+
+## Names
+
+Many constructs in the standard like lattice elements, branches, parameter groups, etc may have
+an associated name. To ensure seamless translation to particular languages, all names must conform
+to the following:
+- A name must start with a letter or the underscore character
+- A name cannot start with a number
+- A name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+
+## Units
+
+The lattice standard uses SI except for energy which uses `eV`.
+```{list-table} Units used by the Standard
+:width: 60%
+:header-rows: 1
+
+* - Quantity
+  - Units
+* - Length
+  - meters
+* - time
+  - seconds
+* - energy
+  - eV
+* - momentum
+  - eV/c
+* - mass
+  - eV/c^2
+* - Voltage
+  - Volts
+* - angles and phases
+  - radians / 2 {math}`\pi`
+* - Magnetic field
+  - Tesla
+* - frequency
+  - Hz
+* - Electric field
+  - Volts/m
+```
