@@ -1,6 +1,6 @@
 # Governance
 
-The Accelerator Lattice Standard is led in an open governance model, described in this file.
+The Particle Accelerator Lattice Standard (PALS) is led in an open governance model, described in this file.
 
 ## Steering Committee
 
