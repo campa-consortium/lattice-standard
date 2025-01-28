@@ -1,5 +1,6 @@
 # Introduction
 
+<<<<<<< HEAD:source/standard/introduction.md
 ## Overview
 
 The Particle Accelerator Lattice Standard (PALS) defines a standard for the sharing of lattice information to describe
@@ -36,6 +37,8 @@ internal format defined by the package.
 PALS does not define how particles are to be tracked through a lattice. PALS is for describing machines and
 not for defining how to simulate particle motion. 
 
+=======
+>>>>>>> d632946b33fa799d412f8115611bc34434214c1a:source/introduction.md
 ## Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
@@ -75,7 +78,7 @@ Lord branches will be explained in detail in later sections.
 
 ## Lattices
 
-A **lattice is the root structure holding the information about a
+A **lattice** is the root structure holding the information about a
 ``machine``. A machine may be as simple as a line of elements (like the elements of a Linac) or
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
@@ -89,3 +92,84 @@ other branch is called a **root** branch.
 
 A lattice may contain multiple **root** branches. For example, a pair of intersecting storage
 rings will generally have two root branches, one for each ring.
+
+## Syntax Used in this Document
+
+ALS does not define any particular language to implement the ALS schema. Rather, there are associated
+language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
+associated standards, there are packages that implement translation between lattice files and a representational
+internal format defined by the package.
+
+While the standard itself is language agnostic, this document that describes the standard
+needs to use some syntax and this syntax is based upon YAML. Non-YAML syntax used here is:
+
+1. The {math}`N^{th}` item in a list is referred to using square brackets enclosing the index: `[N]`.
+For example:
+```{code} YAML
+Aperture:
+  name: ap1
+  x_limit: [-0.03, 0.03]
+```
+here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of `x_limit` respectively.
+
+2. The standard defines the following symbols which can be used in place of a value: 
+- `Inf`    # Infinity
+- `-Inf`   # Negative infinity
+- `NaN`    # Not a number
+
+Note: There is a difference between
+```{code} yaml
+this_group:
+  key1: value1
+  key2: value2
+  key3: value3
+```
+and
+```{code} yaml
+this_group:
+  - key1: value1
+  - key2: value2
+  - key3: value3
+```
+The first represents an unordered dictionary of key, value pairs and the second represents an ordered 
+dictionary.
+
+## Names
+
+Many constructs in the standard like lattice elements, branches, parameter groups, etc may have
+an associated name. To ensure seamless translation to particular languages, all names must conform
+to the following:
+- A name must start with a letter or the underscore character
+- A name cannot start with a number
+- A name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+
+## Units
+
+The lattice standard uses SI except for energy which uses `eV`.
+```{list-table} Units used by the Standard
+:width: 60%
+:header-rows: 1
+
+* - Quantity
+  - Units
+* - Length
+  - meters
+* - time
+  - seconds
+* - energy
+  - eV
+* - momentum
+  - eV/c
+* - mass
+  - eV/c^2
+* - Voltage
+  - Volts
+* - angles and phases
+  - radians / 2 {math}`\pi`
+* - Magnetic field
+  - Tesla
+* - frequency
+  - Hz
+* - Electric field
+  - Volts/m
+```
