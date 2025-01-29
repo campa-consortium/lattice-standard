@@ -31,7 +31,7 @@ And the above defines a new aperture group which inherits from **ap1**.
 
 Naming a parameter group is only needed if the parameter group is defined outside of an element.
 ```{code} yaml
-element:
+Element:
   name: q1
   Aperture: 
     x_limit: [-0.03, 0.04]
@@ -39,7 +39,7 @@ element:
 ```
 And an element can inherit a parameter group from another element:
 ```{code} yaml
-element:
+Element:
   name: q2
   Aperture:
     inherit: q1.Aperture
@@ -47,7 +47,7 @@ element:
 
 For an element to inherit all parameter groups from another element, just inherit the element itself:
 ```{code} yaml
-element:
+Element:
   name: q3
   inherit: q2
 ```

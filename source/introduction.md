@@ -69,7 +69,7 @@ For example:
 ```{code} YAML
 Aperture:
   name: ap1
-  x_limit: [-0.03, 0.03]
+  x_limit: [-0.03, 0.04]
 ```
 here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of `x_limit` respectively.
 
@@ -93,7 +93,7 @@ this_group:
   - key3: value3
 ```
 The first represents an unordered dictionary of key, value pairs and the second represents an ordered 
-dictionary.
+dictionary of key value pairs.
 
 ## Names
 

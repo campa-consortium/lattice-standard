@@ -18,5 +18,6 @@ how_to_write_docs.md
 
 introduction.md
 element_parameters.md
+constructing-lattices.md
 coordinates.md
 ```
