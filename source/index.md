@@ -9,7 +9,7 @@ This standard is an effort to create a standard to promote lattice information e
 overview.md
 governance.md
 contributing.md
-how_to_write_docs.md
+how-to-write-docs.md
 ```
 
 ```{toctree}
@@ -17,7 +17,10 @@ how_to_write_docs.md
 :caption: Standard
 
 introduction.md
-element_parameters.md
-constructing-lattices.md
 coordinates.md
+element-parameters.md
+element-types.md
+constructing-lattices.md
+forking.md
+multipass.md
 ```

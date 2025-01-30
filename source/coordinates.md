@@ -1,7 +1,7 @@
 (c:coords)=
 # Coordinates
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 (s:coords)=
 ## Coordinate Systems
 
@@ -16,7 +16,7 @@ system. Each lattice element has `element body` coordinates which, if the elemen
 alignment shifts (not "misaligned"), is the same as the `branch` coordinates.
 ```
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 The lattice standard uses three coordinate systems as illustrated in the figure above. 
 First, the `floor` coordinates are rectangular coordinates independent of the accelerator.
@@ -51,7 +51,7 @@ alignment shifts, the `body` coordinates of the element are aligned with the
 The transformation between `branch` and `body` coordinates is given in
 [xxx](#s:lab.body.transform).
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 (s:ent.exi)=
 ## Element Entrance and Exit Coordinates
 
@@ -68,7 +68,7 @@ C) For `Patch` and `floor_shift` elements the
 exit frame may be arbitrarily positioned with respect to the entrance frame.
 ```
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 As discussed in the next section, the branch coordinate system is constructed starting with the first
 element in a lattice tracking branch and then building up the coordinate system element-by-element.
@@ -96,11 +96,11 @@ entrance and exit faces is not defined. For the `Patch` element, the interior re
 is dependent upon certain `Patch` element parameter settings ([xxx](#s:patch)) and, in general,
 will have a discontinuity.
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 (s:ref.construct)=
 ## Branch Coordinates Construction
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 ```{figure} figures/patch-between.svg
 :width: 70%
@@ -117,7 +117,7 @@ In (B), (C), and (D) the {math}`(x,z)` coordinates are drawn at the `entrance` e
 The {math}`y` coordinate is always out of the page for this example.
 ```
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 Assuming for the moment that there are no [Fiducial](#s:fiducial) elements present,
 the construction of a tracking
@@ -306,7 +306,7 @@ axis {math}`\bf u` (normalized to 1) and angle of rotation {math}`\beta`
   \end{pmatrix}
 ```
 
-%-----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 (s:ele.pos)=
 ### Lattice Element Positioning
 

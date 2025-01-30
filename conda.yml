@@ -1,4 +1,4 @@
-# For local development, create the environment like this:
+# For local development, from your lattice-standard directory, create the environment like this:
 #   conda env create -y -f conda.yml
 #   conda activate lattice-standard
 #
