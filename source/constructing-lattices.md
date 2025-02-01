@@ -14,10 +14,10 @@ The top level `BeamLine` from which a branch is constructed is called a `root Be
 The components of a BeamLine are:
 ```{code} yaml
 name        # String: Name of the BeamLine. Optional.
-multipass   # Bool: Multipass line or not? Optional. Default is False.
+multipass   # Bool: Multipass line or not. Optional. Default is False.
 length      # [m]: Length of the BeamLine. Optional.
 line        # Ordered list: List of elements. Required.
-reference_element  # Reference element. Optional.
+reference_point  # String: Name of a line item used as a reference. Optional.
 ```
 
 The `name` component is a string that can be used to reference the `BeamLine`.
@@ -29,15 +29,16 @@ The optional `length` component gives the length of the `BeamLine`.
 If `length` is not given, the BeamLine ends at the downstream end of the final
 element in the `line` and with this the length of the BeamLine can be calculated.
 
-The optional `referece_element` component is used to position sublines.
-See below.
-This referece element must have zero length.
+The optional `reference_point` component is used to position sublines.
+The value of `reference_point` is the name of a `line item` that marks the reference point. 
+To make things unambiguous, the reference `item` must have zero length.
+In most cases, this means that the `reference_point` cannot be a `BeamLine`.
 
 The `line` component of a BeamLine holds an ordered list of `items`. 
 Each `item` represents one (or more if there is a `repeat` count) lattice element or
 BeamLine. 
 
-A line `item` can have a value which is the name of a lattice element or `BeamLine`, 
+A line `item` can have a value that is the name of a lattice element or `BeamLine`, 
 or the `item` can have a component that is one of
 ```{code} yaml
 name                # Name of lattice element or BeamLine.
@@ -57,7 +58,7 @@ BeamLine:
   name: inj_line
   multipass: True
   length: 37.8
-  reference_element: thingC
+  reference_point: thingC
   line:
     - item: thingB      # Name of an element or BeamLine defined elsewhere.
     - item:             # Another way of specifying the name of an element or BeamLine.
@@ -76,7 +77,7 @@ BeamLine:
 (s:line.construction)=
 ### Constructing a BeamLine `line` 
 
-A line item which is a lattice element can be specified by name if a lattice element
+A line item that is a lattice element can be specified by name if a lattice element
 of that name has been defined. Example:
 ```{code} yaml
 Element: 
@@ -161,7 +162,7 @@ C, B, A, C, B, A, C, B, A
 
 Notice that reverse order does not mean true [direction reversal](#s:ref.construct). 
 For elements that have longitudinal symmetry, this does not matter. 
-However, for example, for a `Bend` element, that is in a line with reversed order,
+However, for example, for a `Bend` element that is in a line with reversed order,
 the edge angle `e1` will still represent the edge of the upstream side and `e2` will represent the edge 
 at the downstream side.
 
@@ -206,51 +207,64 @@ in an element that is unreversed.
 :name: f:superposition
 
 Positioning of a line item (which may be a lattice element or BeamLine) with respect to 
-a reference line item when there is an explicit placement.
+a reference line item when there is an explicit placement component present.
 ```
 
 If the longitudinal placement of a line `item` is not specified, as is the case with the above
 examples, a line `item` is placed so the upstream end of the item is flush with the downstream end
 of the preceding item as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
 
-Explicit longitudinal placement of a line `item` uses a `placement` component. 
+To adjust the longitudinal placement of an `item`, 
+the `placement` component of an `item` can be used.
+When there is a `placement` component, figure {numref}`f:superposition` shows how the line `item` 
+is positioned with respect to a reference line `item`. 
+If the reference `item` is not specified, the beginning of the `line` is used. In this case, 
+a `reference_origin` may not be specified.
+
 The components of `placement` are:
 ```{code} yaml
-offset            # Longitudinal offset of the line item.
-origin            # Line item origin point.
-reference         # Reference line item.
-reference_origin  # Reference line item origin point.
+offset            # Real [m]. Longitudinal offset of the line item.
+origin            # Switch. Line item origin point.
+reference         # String. Reference line item.
+reference_origin  # Switch. Reference line item origin point.
 ```
-Figure {numref}`f:superposition` shows how a line item is positioned with respect to a reference line item. 
-If the reference element is not specified, the beginning of the line is used. In this case, 
-a `referece_origin` may not be specified.
+
+The `reference_origin` is the reference point on the reference line element and `origin` is the
+reference point on the element being positioned. These switches may take the values:
+```{code} yaml
+ENTRANCE_END       # Entrance end of the `item`.
+CENTER             # Center of the `item`.
+EXIT_END           # Exit end of the `item`.
+REFERENCE_POINT    # Used with sublines that define a reference point.         
+```
 
 Example:
 ```{code} yaml
 BeamLine:
   line:
     - item: thingA
-    - item
+    - item:
         name: this_line
         placement:
           offset = 37.5
           reference: thingA
-          reference_origin: DOWNSTREAM_END
-          origin: REFERENCE_ELEMENT
+          reference_origin: EXIT_END
+          origin: REFERENCE_POINT
         ...
     ...
 ```
+In this example, the origin point of `this_line`, which is the `reference_point` of `this_line`,
+is placed `37.5` meters from the origin point of `thingA`. The origin point of `thingA` being
+the exit end of `thingA`. 
 
-The `reference_origin` is the reference point on the reference line element and `origin` is the
-reference point on the element being positioned. These switches may take the values:
-```{code} yaml
-UPSTREAM_END
-CENTER
-DOWNSTREAM_END
-REFERENCE_ELEMENT    # Used with sublines that define a reference element.         
-```
-Note: Lattice elements are allowed to overlap but it should be kept in mind that this 
-may hinder portability with other programs.
+To make placement unambiguous, A `reference` `item` must appear before the `item` being placed.
+In a section of a line where the lattice elements are not reversed, a positive `offset` moves
+the element being placed downstream. If there is reversal, a positive `offset` moves
+the element being placed upstream. That is, placement will not affect the relative positions
+of items if a line is reversed.
+
+Note: Lattice elements are allowed to overlap but it should be kept in mind that 
+some programs will not be able to handle overlapping fields.
 
 %---------------------------------------------------------------------------------------------------
 (s:lattice.construct)=

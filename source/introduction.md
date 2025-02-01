@@ -52,7 +52,7 @@ A `lattice` is the root structure holding the information about a
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
 
-Essentially, a `lattice`, has an array of `branches` with each branch describing part of the
+Essentially a `lattice`, has an array of `branches` with each branch describing part of the
 machine. Branches can be interconnected to form a unified whole.
 Branches can be interconnected using `Fork` elements. 
 This is used to simulate forking beam lines such as a connections to a transfer line, dump line, or an
@@ -71,7 +71,7 @@ rings will generally have two root branches, one for each ring.
 (s:expansion)=
 ## Lattice Expansion
 
-An important concept is `lattice expansion` which can also be called `branch expansion` or
+An important concept is `lattice expansion`, which can also be called `branch expansion` or
 `beamline expansion`. Lattice expansion is the process, starting from the `root` `BeamLine`
 of a branch, of constructing the ordered list of lattice elements contained in that branch.
 
