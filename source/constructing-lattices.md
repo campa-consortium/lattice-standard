@@ -207,12 +207,15 @@ in an element that is unreversed.
 :name: f:superposition
 
 Positioning of a line item (which may be a lattice element or BeamLine) with respect to 
-a reference line item when there is an explicit placement component present.
+a reference line item when there is an explicit placement component present. Assuming
+unreversed elements, a positive offset positions the item being positioned downstream
+of the reference item.
+
 ```
 
 If the longitudinal placement of a line `item` is not specified, as is the case with the above
-examples, a line `item` is placed so the upstream end of the item is flush with the downstream end
-of the preceding item as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
+examples, a line `item` is placed such that the entrance end of the item is flush with the exit end
+of the preceding `item` as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
 
 To adjust the longitudinal placement of an `item`, 
 the `placement` component of an `item` can be used.
@@ -223,24 +226,29 @@ a `reference_origin` may not be specified.
 
 The components of `placement` are:
 ```{code} yaml
-offset            # Real [m]. Longitudinal offset of the line item.
-origin            # Switch. Line item origin point.
-reference         # String. Reference line item.
-reference_origin  # Switch. Reference line item origin point.
+offset            # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
+origin            # Optional switch. Line item origin point. Default is CENTER.
+reference         # Optional string. Reference line item. Default is a blank string which 
+                  #  indicates the beginning of the `line`.
+reference_origin  # Optional switch. Reference line item origin point. Default is CENTER.
 ```
 
 The `reference_origin` is the reference point on the reference line element and `origin` is the
-reference point on the element being positioned. These switches may take the values:
+reference point on the element being positioned. The distance between these points is set by 
+the value of `offset`.
+The values of `reference_origin` and `origin` can be one of the following:
 ```{code} yaml
 ENTRANCE_END       # Entrance end of the `item`.
-CENTER             # Center of the `item`.
+CENTER             # Center of the `item`. Default.
 EXIT_END           # Exit end of the `item`.
-REFERENCE_POINT    # Used with sublines that define a reference point.         
+REFERENCE_POINT    # Used with sublines that define a reference point.     
 ```
+`CENTER` is the default value for both of these switches.
 
 Example:
 ```{code} yaml
 BeamLine:
+  name: position_line
   line:
     - item: thingA
     - item:
@@ -260,8 +268,36 @@ the exit end of `thingA`.
 To make placement unambiguous, A `reference` `item` must appear before the `item` being placed.
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
 the element being placed downstream. If there is reversal, a positive `offset` moves
-the element being placed upstream. That is, placement will not affect the relative positions
-of items if a line is reversed.
+the element being placed upstream. That is, placement will not affect the relative distances
+of items if a line is reversed. In the above example, if `position_line` expandeds to:
+```{code} yaml
+thingA, thingB, thingC
+```
+then the following 
+```{code} yaml
+BeamLine:
+  line:
+  - item:
+      name: position_line
+      repetition: -1
+```
+Would expand to
+```{code} yaml
+thingC, thingB, thingA
+```
+with the same relative distances between elements. Similarly, this:
+```{code} yaml
+BeamLine:
+  line:
+  - item:
+      name: position_line
+      direction: -1
+```
+Would expand to
+```{code} yaml
+-thingC, -thingB, -thingA
+```
+again with the same relative distances between elements.
 
 Note: Lattice elements are allowed to overlap but it should be kept in mind that 
 some programs will not be able to handle overlapping fields.
@@ -308,13 +344,10 @@ that is "single pass".
 Notice that by specifying a `CLOSED` geometry it does **not** mean that the downstream end of
 the last element of the `Branch` has the same [floor](#s:floor) coordinates as the floor
 coordinates at the beginning. Setting the geometry to `CLOSED` simply signals to a program that
-it may be appropriate to calculate closed (periodic) orbits and periodic Twiss parameters
+it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
-parameters based upon initial orbit and Twiss parameters set for the beginning of the `Branch`.  
+parameters based upon orbit and Twiss parameters set by the User for the beginning of the `Branch`.  
 Indeed, it is sometimes convenient to treat branches as closed even though there is no 
 closure in the floor coordinate sense.
 For example, when a storage ring has a number of repeating "periods", it may be
 convenient to only use one period in a simulation. 
-
-% Stuff that could be added to the standard:
-%  BeamLine manipulations like slices, element removal, substitution list, etc.
