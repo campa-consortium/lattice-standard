@@ -2,7 +2,7 @@
 
 ## Follow these steps **only once**
 
-1. Go to https://github.com/campa-consortium/lattice-standard.
+1. Go to https://github.com/campa-consortium/particle-accerator-lattice-standard.
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
@@ -11,10 +11,10 @@
 
 The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
 
-5. On your local machine, from the terminal, clone the main repository:
+4. On your local machine, from the terminal, clone the main repository:
 ```
-git clone git@github.com:campa-consortium/lattice-standard.git
-cd lattice-standard
+git clone git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
+cd particle-accelerator-lattice-standard
 ```
 
 5. Rename what we just cloned:  call it "mainline":
@@ -24,14 +24,14 @@ git remote rename origin mainline
 
 6.  Add your remote repository in order to track it locally:
 ```
-git remote add username git@github.com:campa-consortium/lattice-standard.git
+git remote add username git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
 ```
 
 ## Follow these steps **each time you submit a pull request**
 
 1. Change into the working directory for your local repo:
 ```
-cd lattice-standard
+cd particle-accelerator-lattice-standard
 ```
 
 2. Make sure your local repository is up-to-date:
