@@ -1,7 +1,13 @@
 # How to Contribute
 
+<<<<<<< HEAD
 Follow these steps **only once**:
 1. Go to https://github.com/campa-consortium/particle-accelerator-lattice-standard.
+=======
+## Follow these steps **only once**
+
+1. Go to https://github.com/campa-consortium/particle-accerator-lattice-standard.
+>>>>>>> c86a619 (Apply suggestions from code review)
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
@@ -10,7 +16,7 @@ Follow these steps **only once**:
 
 The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
 
-5. On your local machine, from the terminal, clone the main repository:
+4. On your local machine, from the terminal, clone the main repository:
 ```
 git clone git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
 cd particle-accelerator-lattice-standard
