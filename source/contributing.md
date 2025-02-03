@@ -1,7 +1,8 @@
 # How to Contribute
 
-Follow these steps **only once**:
-1. Go to https://github.com/campa-consortium/particle-accelerator-lattice-standard.
+## Follow these steps **only once**
+
+1. Go to https://github.com/campa-consortium/particle-accerator-lattice-standard.
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
@@ -10,11 +11,11 @@ Follow these steps **only once**:
 
 The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
 
-5. On your local machine, from the terminal, clone the main repository:
+4. On your local machine, from the terminal, clone the main repository:
 ```
 git clone git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
+cd particle-accelerator-lattice-standard
 ```
-
 5. Rename what we just cloned:  call it "mainline":
 ```
 git remote rename origin mainline
@@ -25,7 +26,8 @@ git remote rename origin mainline
 git remote add username git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
 ```
 
-Follow these steps **each time you submit a pull request**:
+## Follow these steps **each time you submit a pull request**
+
 1. Change into the working directory for your local repo:
 ```
 cd particle-accelerator-lattice-standard
@@ -37,31 +39,31 @@ git checkout main
 git pull
 ```
 
-2. Create a new branch with a descriptive name for the desired changes (e.g., "add_template"):
+3. Create a new branch with a descriptive name for the desired changes (e.g., "add_template"):
 ```
 git checkout -b add_template
 ```
 
-3. Make the desired changes to the local files.
+4. Make the desired changes to the local files.
 For example, add a new file "pull_request_element_template.md"
 
-4. View the proposed changes via `git status` (optional).
+5. View the proposed changes via `git status` (optional).
 
-5. Add the changes to your local staging area:
+6. Add the changes to your local staging area:
 ```
 git add pull_request_element_template.md
 ```
 
-6. Commit the changes to your local repo, including an informative message:
+7. Commit the changes to your local repo, including an informative message:
 ```
 git commit -m "Add element template."
 ```
 
-7. Push the changes to your fork:
+8. Push the changes to your fork:
 ```
 git push -u username add_template
 ```
 
-8. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/cemitch99/particle-accelerator-lattice-standard/pull/new/add_template](https://github.com/cemitch99/particle-accelerator-lattice-standard/pull/new/add_template).
+9. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare](https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare).
 
-9. Add a title and additional information relevant to the pull request (as needed).
+10. Add a title and additional information relevant to the pull request (as needed).
