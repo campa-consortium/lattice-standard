@@ -1,13 +1,7 @@
 # How to Contribute
 
-<<<<<<< HEAD
 Follow these steps **only once**:
 1. Go to https://github.com/campa-consortium/particle-accelerator-lattice-standard.
-=======
-## Follow these steps **only once**
-
-1. Go to https://github.com/campa-consortium/particle-accerator-lattice-standard.
->>>>>>> c86a619 (Apply suggestions from code review)
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
@@ -45,31 +39,32 @@ git checkout main
 git pull
 ```
 
-2. Create a new branch with a descriptive name for the desired changes (e.g., "add_template"):
+3. Create a new branch with a descriptive name for the desired changes (e.g., "add_template"):
 ```
 git checkout -b add_template
 ```
 
-3. Make the desired changes to the local files.
+4. Make the desired changes to the local files.
 For example, add a new file "pull_request_element_template.md"
 
-4. View the proposed changes via `git status` (optional).
+5. View the proposed changes via `git status` (optional).
 
-5. Add the changes to your local staging area:
+6. Add the changes to your local staging area:
 ```
 git add pull_request_element_template.md
 ```
 
-6. Commit the changes to your local repo, including an informative message:
+7. Commit the changes to your local repo, including an informative message:
 ```
 git commit -m "Add element template."
 ```
 
-7. Push the changes to your fork:
+8. Push the changes to your fork:
 ```
 git push -u username add_template
 ```
 
-8. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare](https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare).
+9. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare](https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare).
 
-9. Add a title and additional information relevant to the pull request (as needed).
+10. Add a title and additional information relevant to the pull request (as needed).
+B
