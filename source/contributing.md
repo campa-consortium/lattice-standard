@@ -7,7 +7,7 @@
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
 3. Go back to https://github.com/campa-consortium/particle-accerator-lattice-standard, click `Code` > `SSH`, and copy the url of the repo:
-(e.g., git@github.com:campa-consortium/lattice-standard.git)
+(e.g., git@github.com:campa-consortium/particle-accerator-lattice-standard.git)
 
 The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
 
