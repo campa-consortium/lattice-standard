@@ -24,11 +24,10 @@ The position of the accelerator itself as well as external objects like the buil
 accelerator is in  may be described using `floor` coordinates.
 
 It is inconvenient to describe the position lattice elements and the position of a 
-particle beam using the `floor` coordinate system so, for each tracking lattice branch,
+particle beam using the `floor` coordinate system so, for each branch,
 a "[branch](#s:branch.coords)" coordinate system is used. This curvilinear coordinate
 system defines the nominal position of the lattice elements. The relationship between the
 `branch` and `floor` coordinate systems is described in section [](#s:floor). 
-Lord (non-tracking) branches do not have an associated branch coordinate system.
 
 The `branch reference curve` is the {math}`x = y = 0` curve of the curvilinear coordinate system. 
 The branch reference curve does not have to be continuous and, in particular, the coordinate
@@ -71,8 +70,8 @@ exit frame may be arbitrarily positioned with respect to the entrance frame.
 %---------------------------------------------------------------------------------------------------
 
 As discussed in the next section, the branch coordinate system is constructed starting with the first
-element in a lattice tracking branch and then building up the coordinate system element-by-element.
-Most elements in a tracking branch have an "`entrance`" and an "`exit`" coordinate frame as
+element in a branch and then building up the coordinate system element-by-element.
+Most elements have an "`entrance`" and an "`exit`" coordinate frame as
 illustrated in the above figure.
 These coordinate frames are attached to the element and are part of the `element body coordinates`. 
 `Fiducial` elements ([xxx](#s:fiducial)) are an excption. 
@@ -80,7 +79,7 @@ These coordinate frames are attached to the element and are part of the `element
 and construction of the branch coordinate system starts at this coordinate system. 
 See [xxx](#s:fiducial) for more details.
 Note that `Girder` elements ([xxx](#s:girder)) also only have a single coordinate frame but they
-are put in a lord branch and do not appear in a tracking branch.
+are not included in any branch.
 
 Most element types have a "straight" geometry as shown in
 {numref}`f:ele.coord.frame`A. That is, the reference curve through the element is a straight line
@@ -120,9 +119,9 @@ The {math}`y` coordinate is always out of the page for this example.
 %---------------------------------------------------------------------------------------------------
 
 Assuming for the moment that there are no [Fiducial](#s:fiducial) elements present,
-the construction of a tracking
-branch coordinate system starts at the [BeginningEle](#s:begin.ele) element at the start of a
-branch. If the branch is a [root](#s:lattice.def) branch, the orientation of the beginning
+the construction of a branch coordinate system starts at the [BeginningEle](#s:begin.ele) element 
+at the start of a branch. 
+If the branch is a [root](#s:lattice.def) branch, the orientation of the beginning
 element within the [floor coordinate system](#s:coords) can be fixed by setting 
 [FloorOrientation](#s:orientationition.g) parameters in the `BeginningEle` element.
 If the branch is not a `root` branch, the position

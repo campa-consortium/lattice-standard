@@ -28,20 +28,11 @@ By convention, element names in PALS will be upper camel case.
 (s:branches)=
 ## Lattice Branches
 
-A lattice `branch` holds a collection of lattice elements. 
-There are two types of branches. One type, called a "tracking branch", holds
-an ordered array of lattice elements that gives a
-sequence of elements to be tracked through. A tracking branch can represent something like a
-storage ring, transfer line or Linac.
+A lattice `branch` holds a collection of lattice elements which is an ordered array of 
+lattice elements that gives the sequence of elements to be tracked through. 
+A branch can represent something like a storage ring, transfer line or Linac.
 In the simplist case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicate tracking.
-
-The other type of branch, called a "lord" branch, is used to hold lattice elements that help describe:
-- Support elements (Girders)
-- Overlapping elements (Superposition)
-- Situations where an element is transversed multiple times as in an ERL or in opposite directions
-as in a colliding beam machine (Multipass)
-Lord branches will be explained in detail in later sections.
 
 %---------------------------------------------------------------------------------------------------
 (s:lattices)=
@@ -56,7 +47,11 @@ Essentially a `lattice`, has an array of `branches` with each branch describing 
 machine. Branches can be interconnected to form a unified whole.
 Branches can be interconnected using `Fork` elements. 
 This is used to simulate forking beam lines such as a connections to a transfer line, dump line, or an
-X-ray beam line. 
+X-ray beam line.
+
+Besides `branches`, a lattice will hold information like details of any support girders that are
+present and `multipass` information in the case where elements are transversed multiple times 
+as in an ERL or in opposite directions as in a colliding beam machine.
 
 %---------------------------------------------------------------------------------------------------
 (s:root)=

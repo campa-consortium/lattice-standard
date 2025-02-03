@@ -213,10 +213,9 @@ of the reference item.
 
 ```
 
-If the longitudinal placement of a line `item` is not specified, as is the case with the above
-examples, a line `item` is placed such that the entrance end of the item is flush with the exit end
+By default,
+a line `item` is placed such that the entrance end of the `item` is flush with the exit end
 of the preceding `item` as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
-
 To adjust the longitudinal placement of an `item`, 
 the `placement` component of an `item` can be used.
 When there is a `placement` component, figure {numref}`f:superposition` shows how the line `item` 
@@ -227,10 +226,10 @@ a `reference_origin` may not be specified.
 The components of `placement` are:
 ```{code} yaml
 offset            # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
-origin            # Optional switch. Line item origin point. Default is CENTER.
+origin            # Optional switch. Line item origin point. Default is ENTRANCE_END.
 reference         # Optional string. Reference line item. Default is a blank string which 
                   #  indicates the beginning of the `line`.
-reference_origin  # Optional switch. Reference line item origin point. Default is CENTER.
+reference_origin  # Optional switch. Reference line item origin point. Default is EXIT_END.
 ```
 
 The `reference_origin` is the reference point on the reference line element and `origin` is the
@@ -238,12 +237,11 @@ reference point on the element being positioned. The distance between these poin
 the value of `offset`.
 The values of `reference_origin` and `origin` can be one of the following:
 ```{code} yaml
-ENTRANCE_END       # Entrance end of the `item`.
-CENTER             # Center of the `item`. Default.
-EXIT_END           # Exit end of the `item`.
+ENTRANCE_END       # Entrance end of the `item`. Default for `origin` component.
+CENTER             # Center of the `item`.
+EXIT_END           # Exit end of the `item`. Default for `reference_origin` component
 REFERENCE_POINT    # Used with sublines that define a reference point.     
 ```
-`CENTER` is the default value for both of these switches.
 
 Example:
 ```{code} yaml
@@ -265,7 +263,7 @@ In this example, the origin point of `this_line`, which is the `reference_point`
 is placed `37.5` meters from the origin point of `thingA`. The origin point of `thingA` being
 the exit end of `thingA`. 
 
-To make placement unambiguous, A `reference` `item` must appear before the `item` being placed.
+To make placement unambiguous, A `reference item` must appear before the `item` being placed.
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
 the element being placed downstream. If there is reversal, a positive `offset` moves
 the element being placed upstream. That is, placement will not affect the relative distances
