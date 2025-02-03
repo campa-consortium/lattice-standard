@@ -6,8 +6,8 @@
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
-3. Go back to https://github.com/campa-consortium/particle-accerator-lattice-standard, click `Code` > `SSH`, and copy the url of the repo:
-(e.g., git@github.com:campa-consortium/particle-accerator-lattice-standard.git)
+3. Go back to https://github.com/campa-consortium/particle-accelerator-lattice-standard, click `Code` > `SSH`, and copy the url of the repo:
+(e.g., git@github.com:campa-consortium/particle-accelerator-lattice-standard.git)
 
 The simpler option `Code` > `HTTPS` can be used if the user just want to look at the repo.  (This does not require a password setup.)
 
@@ -16,7 +16,6 @@ The simpler option `Code` > `HTTPS` can be used if the user just want to look at
 git clone git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
 cd particle-accelerator-lattice-standard
 ```
-
 5. Rename what we just cloned:  call it "mainline":
 ```
 git remote rename origin mainline

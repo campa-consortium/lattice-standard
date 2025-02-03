@@ -1,4 +1,4 @@
-# Accelerator Lattice Standard
+# Particle Accelerator Lattice Standard
 
 This standard is an effort to create a standard to promote lattice information exchange for particle accelerators.
 
