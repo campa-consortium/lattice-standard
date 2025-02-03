@@ -1,10 +1,10 @@
-[![Documentation Status](https://readthedocs.org/projects/campa-lattice/badge/?version=latest)](https://campa-lattice.readthedocs.io)
+[![Documentation Status](https://readthedocs.org/projects/lattice-standard/badge/?version=latest)](https://lattice-standard.readthedocs.io)
 
 # Particle Accelerator Lattice Standard (PALS)
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
 
-[Online documents.](https://campa-lattice.readthedocs.io)
+[Online documents.](https://lattice-standard.readthedocs.io)
 
 ## Scope
 
