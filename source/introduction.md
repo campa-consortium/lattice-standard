@@ -28,8 +28,8 @@ By convention, element names in PALS will be upper camel case.
 (s:branches)=
 ## Lattice Branches
 
-A lattice `branch` holds a collection of lattice elements which is an ordered array of 
-lattice elements that gives the sequence of elements to be tracked through. 
+A lattice `branch` holds an ordered array of lattice elements
+that gives the sequence of elements to be tracked through. 
 A branch can represent something like a storage ring, transfer line or Linac.
 In the simplest case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicate tracking.
@@ -110,14 +110,14 @@ this_group:
   - key2: value2
   - key3: value3
 ```
-The first represents an unordered dictionary of key, value pairs and the second represents an ordered 
-dictionary of key value pairs.
+The first represents an unordered dictionary of key-value pairs and the second represents an ordered 
+dictionary of key-value pairs.
 
 %---------------------------------------------------------------------------------------------------
 (s:names)=
 ## Names
 
-Many constructs in the standard like lattice elements, branches, parameter groups, etc may have
+Many constructs in the standard like lattice elements, branches, parameter groups, etc., may have
 an associated name. To ensure seamless translation to particular languages, all names must conform
 to the following:
 - A name must start with a letter or the underscore character

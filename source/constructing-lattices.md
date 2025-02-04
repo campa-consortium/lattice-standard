@@ -6,18 +6,20 @@
 ## BeamLines
 
 A lattice [`branch`](#s:branches) is constructed from a `BeamLine`. A BeamLine is essentially 
-an ordered array of elements. Each element is either a lattice element or a `BeamLine`. 
+an ordered array of elements. 
+Each element of a `BeamLine` is either a lattice element or another `BeamLine`. 
 A BeamLine that is contained within another BeamLine is called a `subline`
 of the containing BeamLine.
 The top level `BeamLine` from which a branch is constructed is called a `root Beamline`. 
 
 The components of a BeamLine are:
 ```{code} yaml
-name        # String: Name of the BeamLine. Optional.
-multipass   # Bool: Multipass line or not. Optional. Default is False.
-length      # [m]: Length of the BeamLine. Optional.
-line        # Ordered list: List of elements. Required.
-reference_point  # String: Name of a line item used as a reference. Optional.
+name        # Optional. String: Name of the BeamLine.
+multipass   # Optional. Bool: Multipass line or not. Default is False.
+length      # Optional. [m]: Length of the BeamLine.
+line        # Ordered list: List of elements.
+zero_point  # Optional. String: Name of a line item used as a reference point when
+            #  the BeamLine is used as a subline.
 ```
 
 The `name` component is a string that can be used to reference the `BeamLine`.
@@ -29,10 +31,10 @@ The optional `length` component gives the length of the `BeamLine`.
 If `length` is not given, the BeamLine ends at the downstream end of the final
 element in the `line` and with this the length of the BeamLine can be calculated.
 
-The optional `reference_point` component is used to position sublines.
-The value of `reference_point` is the name of a `line item` that marks the reference point. 
+The optional `zero_point` component is used to position sublines.
+The value of `zero_point` is the name of a `line item` that marks the reference point. 
 To make things unambiguous, the reference `item` must have zero length.
-In most cases, this means that the `reference_point` cannot be a `BeamLine`.
+In most cases, this means that the `zero_point` cannot be a `BeamLine`.
 
 The `line` component of a BeamLine holds an ordered list of `items`. 
 Each `item` represents one (or more if there is a `repeat` count) lattice element or
@@ -58,7 +60,7 @@ BeamLine:
   name: inj_line
   multipass: True
   length: 37.8
-  reference_point: thingC
+  zero_point: thingC
   line:
     - item: thingB      # Name of an element or BeamLine defined elsewhere.
     - item:             # Another way of specifying the name of an element or BeamLine.
@@ -209,7 +211,7 @@ in an element that is unreversed.
 Positioning of a line item (which may be a lattice element or BeamLine) with respect to 
 a reference line item when there is an explicit placement component present. Assuming
 unreversed elements, a positive offset positions the item being positioned downstream
-of the reference item.
+of the `reference_item`.
 
 ```
 
@@ -220,15 +222,15 @@ To adjust the longitudinal placement of an `item`,
 the `placement` component of an `item` can be used.
 When there is a `placement` component, figure {numref}`f:superposition` shows how the line `item` 
 is positioned with respect to a reference line `item`. 
-If the reference `item` is not specified, the beginning of the `line` is used. In this case, 
-a `reference_origin` may not be specified.
+If the `reference_item` is not specified, or set to `BEGINNING`, the beginning of the `line` is used. 
 
 The components of `placement` are:
 ```{code} yaml
 offset            # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
 origin            # Optional switch. Line item origin point. Default is ENTRANCE_END.
-reference         # Optional string. Reference line item. Default is a blank string which 
-                  #  indicates the beginning of the `line`.
+reference_item    # Optional string. Reference line item. Default is a blank string which 
+                  #  indicates the previous element or the beginning of the `line` if there
+                  #  is no previous element.
 reference_origin  # Optional switch. Reference line item origin point. Default is EXIT_END.
 ```
 
@@ -240,7 +242,7 @@ The values of `reference_origin` and `origin` can be one of the following:
 ENTRANCE_END       # Entrance end of the `item`. Default for `origin` component.
 CENTER             # Center of the `item`.
 EXIT_END           # Exit end of the `item`. Default for `reference_origin` component
-REFERENCE_POINT    # Used with sublines that define a reference point.     
+ZERO_POINT         # Used with sublines that define a `zero_point`.
 ```
 
 Example:
@@ -253,17 +255,17 @@ BeamLine:
         name: this_line
         placement:
           offset = 37.5
-          reference: thingA
+          reference_item: thingA
           reference_origin: EXIT_END
-          origin: REFERENCE_POINT
+          origin: ZERO_POINT
         ...
     ...
 ```
-In this example, the origin point of `this_line`, which is the `reference_point` of `this_line`,
+In this example, the origin point of `this_line`, which is the `zero_point` of `this_line`,
 is placed `37.5` meters from the origin point of `thingA`. The origin point of `thingA` being
 the exit end of `thingA`. 
 
-To make placement unambiguous, A `reference item` must appear before the `item` being placed.
+To make placement unambiguous, the `reference_item` used in placement must appear before the `item` being placed.
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
 the element being placed downstream. If there is reversal, a positive `offset` moves
 the element being placed upstream. That is, placement will not affect the relative distances
