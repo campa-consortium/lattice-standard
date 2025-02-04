@@ -21,7 +21,7 @@ quadrupole, or a diffracting crystal. A lattice element may define a region in s
 distinguished by the presence of (possibly time-varying) electromagnetic fields,
 materials, apertures and other possible engineered structures. However, lattice elements
 are not restricted to being something physical and may, for example, just mark a particular point in space
-(EG: `Marker` elements), or may designate where beam lines intersect (`Fork` elements).
+(EG: `Marker` elements), or may designate where beamlines intersect (`Fork` elements).
 By convention, element names in PALS will be upper camel case.
 
 %---------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ By convention, element names in PALS will be upper camel case.
 A lattice `branch` holds a collection of lattice elements which is an ordered array of 
 lattice elements that gives the sequence of elements to be tracked through. 
 A branch can represent something like a storage ring, transfer line or Linac.
-In the simplist case, a program can track through the elements one element at a time.
+In the simplest case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicate tracking.
 
 %---------------------------------------------------------------------------------------------------
@@ -43,11 +43,11 @@ A `lattice` is the root structure holding the information about a
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
 
-Essentially a `lattice`, has an array of `branches` with each branch describing part of the
+Essentially a `lattice` has an array of `branches` with each branch describing part of the
 machine. Branches can be interconnected to form a unified whole.
 Branches can be interconnected using `Fork` elements. 
-This is used to simulate forking beam lines such as a connections to a transfer line, dump line, or an
-X-ray beam line.
+This is used to simulate forking beamlines such as a connections to a transfer line, dump line, or an
+X-ray beamline.
 
 Besides `branches`, a lattice will hold information like details of any support girders that are
 present and `multipass` information in the case where elements are transversed multiple times 
@@ -74,7 +74,7 @@ of a branch, of constructing the ordered list of lattice elements contained in t
 (s:syntax)=
 ## Syntax Used in this Document
 
-ALS does not define any particular language to implement the ALS schema. Rather, there are associated
+PALS does not define any particular language to implement the PALS schema. Rather, there are associated
 language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
 associated standards, there are packages that implement translation between lattice files and a representational
 internal format defined by the package.
