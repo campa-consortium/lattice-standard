@@ -1,7 +1,8 @@
 # How to Contribute
 
-Follow these steps **only once**:
-1. Go to https://github.com/campa-consortium/particle-accelerator-lattice-standard.
+## Follow these steps **only once**
+
+1. Go to https://github.com/campa-consortium/particle-accerator-lattice-standard.
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
@@ -15,7 +16,6 @@ The simpler option `Code` > `HTTPS` can be used if the user just want to look at
 git clone git@github.com:campa-consortium/particle-accelerator-lattice-standard.git
 cd particle-accelerator-lattice-standard
 ```
-
 5. Rename what we just cloned:  call it "mainline":
 ```
 git remote rename origin mainline
@@ -67,4 +67,3 @@ git push -u username add_template
 9. Follow the link that is generated to open a new pull request on GitHub that includes these changes, e.g., go to [https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare](https://github.com/campa-consortium/particle-accelerator-lattice-standard/compare).
 
 10. Add a title and additional information relevant to the pull request (as needed).
-B
