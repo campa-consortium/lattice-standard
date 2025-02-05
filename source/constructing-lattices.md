@@ -209,10 +209,11 @@ in an element that is unreversed.
 :name: f:superposition
 
 Positioning of a line item (which may be a lattice element or BeamLine) with respect to 
-a reference line item when there is an explicit placement component present. Assuming
+a "base" line item when there is an explicit placement component present. Assuming
 unreversed elements, a positive offset positions the item being positioned downstream
-of the `reference_item`.
-
+of the `base_item`. The figure is drawn with the `from_point` and `to_point` having their
+default values of `EXIT_END` and `ENTRANCE_END` respectively and assuming that the line
+items are not reversed in orientation.
 ```
 
 By default,
@@ -221,27 +222,27 @@ of the preceding `item` as explained in the [Branch Coordinates Construction](#s
 To adjust the longitudinal placement of an `item`, 
 the `placement` component of an `item` can be used.
 When there is a `placement` component, figure {numref}`f:superposition` shows how the line `item` 
-is positioned with respect to a reference line `item`. 
-If the `reference_item` is not specified, or set to `BEGINNING`, the beginning of the `line` is used. 
+is positioned with respect to a `"base"` line `item`. 
 
 The components of `placement` are:
 ```{code} yaml
-offset            # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
-origin            # Optional switch. Line item origin point. Default is ENTRANCE_END.
-reference_item    # Optional string. Reference line item. Default is a blank string which 
-                  #  indicates the previous element or the beginning of the `line` if there
-                  #  is no previous element.
-reference_origin  # Optional switch. Reference line item origin point. Default is EXIT_END.
+offset       # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
+to_point     # Optional switch. Line `item` offset end point. Default is ENTRANCE_END.
+base_item    # Optional string. Reference line item. Default is a blank string which 
+             #  indicates the previous element or the beginning of the `line` if there
+             #  is no previous element.
+from_point   # Optional switch. Base line `item` offset beginning point. Default is EXIT_END.
 ```
+If the `base_item` is not specified, or set to `BEGINNING`, the beginning of the `line` is used. 
 
-The `reference_origin` is the reference point on the reference line element and `origin` is the
+The `from_point` is the reference point on the base line `item` and `to_point` is the
 reference point on the element being positioned. The distance between these points is set by 
 the value of `offset`.
-The values of `reference_origin` and `origin` can be one of the following:
+The values of `from_point` and `to_point` can be one of the following:
 ```{code} yaml
-ENTRANCE_END       # Entrance end of the `item`. Default for `origin` component.
+ENTRANCE_END       # Entrance end of the `item`. Default for the `to_point` component.
 CENTER             # Center of the `item`.
-EXIT_END           # Exit end of the `item`. Default for `reference_origin` component
+EXIT_END           # Exit end of the `item`. Default for the `from_point` component.
 ZERO_POINT         # Used with sublines that define a `zero_point`.
 ```
 
@@ -255,17 +256,20 @@ BeamLine:
         name: this_line
         placement:
           offset = 37.5
-          reference_item: thingA
-          reference_origin: EXIT_END
-          origin: ZERO_POINT
+          base_item: thingA
+          from_point: EXIT_END
+          to_point: ZERO_POINT
         ...
     ...
 ```
-In this example, the origin point of `this_line`, which is the `zero_point` of `this_line`,
-is placed `37.5` meters from the origin point of `thingA`. The origin point of `thingA` being
-the exit end of `thingA`. 
+In this example, the `to_point` is the `zero_point` of `this_line`.
+The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point with
+the `to_point` being at the exit end of `thingA`.
 
-To make placement unambiguous, the `reference_item` used in placement must appear before the `item` being placed.
+The value of `offset` may be negative as well as positive. With negative offsets, 
+the lattice expansion calculation may become recursive but, in any case, plancement
+must be computable. That is, situations where there in infinite recursion is forbidden.
+
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
 the element being placed downstream. If there is reversal, a positive `offset` moves
 the element being placed upstream. That is, placement will not affect the relative distances
@@ -314,7 +318,7 @@ Lattice:
   - Branch: this_line
   - Branch: 
       name: that_ring
-      geometry: CLOSED
+      periodic: True
 ```
 In this example, `this_line` and `that_ring` are the names of the root BeamLines
 for the two `Branches`.
@@ -329,21 +333,21 @@ the [Forking](#c:forking) chapter.
 
 A `Branch` has the optional component
 ```{code} yaml
-geometry    # Switch: OPEN or CLOSED. Default is OPEN.
+periodic    # Optional Bool. Default is False.
 ```
-The optional `geometry` component of a `BeamLine` is a switch with possible settings
+The optional `periodic` component of a `BeamLine` is a switch with possible settings
 ```{code} yaml
 OPEN          # Default
 CLOSED
 ```
-A `CLOSED` geometry is used to indicate that the `Branch` is something like a storage ring where the
-particle beam recirculates through the `Branch` multiple times.
-An `OPEN` geometry is used to indicate that the `Branch` is something like a Linac or any other line
-that is "single pass". 
+Setting `periodic` to `True` is used to indicate that the `Branch` is something like a 
+storage ring where the particle beam recirculates through the `Branch` multiple times.
+Setting `periodic` to `False` is used to indicate that the `Branch` is something like a 
+Linac or any other line that is "single pass". 
 
-Notice that by specifying a `CLOSED` geometry it does **not** mean that the downstream end of
+Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
 the last element of the `Branch` has the same [floor](#s:floor) coordinates as the floor
-coordinates at the beginning. Setting the geometry to `CLOSED` simply signals to a program that
+coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
 it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
 parameters based upon orbit and Twiss parameters set by the User for the beginning of the `Branch`.  

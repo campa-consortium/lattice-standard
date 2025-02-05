@@ -4,18 +4,9 @@ This standard is an effort to create a standard to promote lattice information e
 
 ```{toctree}
 :maxdepth: 1
-:caption: Front Matter
-
-overview.md
-governance.md
-contributing.md
-how-to-write-docs.md
-```
-
-```{toctree}
-:maxdepth: 1
 :caption: Standard
 
+overview.md
 introduction.md
 coordinates.md
 element-parameters.md
@@ -24,3 +15,13 @@ constructing-lattices.md
 forking.md
 multipass.md
 ```
+
+```{toctree}
+:maxdepth: 1
+:caption: Back Matter
+
+governance.md
+contributing.md
+how-to-write-docs.md
+```
+
