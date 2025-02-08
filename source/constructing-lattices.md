@@ -228,12 +228,11 @@ The components of `placement` are:
 ```{code} yaml
 offset       # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
 to_point     # Optional switch. Line `item` offset end point. Default is ENTRANCE_END.
-base_item    # Optional string. Reference line item. Default is a blank string which 
-             #  indicates the previous element or the beginning of the `line` if there
-             #  is no previous element.
+base_item    # Optional string. Line `item` containing the `from_point`.  
 from_point   # Optional switch. Base line `item` offset beginning point. Default is EXIT_END.
 ```
-If the `base_item` is not specified, or set to `BEGINNING`, the beginning of the `line` is used. 
+If the `base_item` is not specified, the default is the previous element or the beginning 
+of the `line` if there is no previous element.
 
 The `from_point` is the reference point on the base line `item` and `to_point` is the
 reference point on the element being positioned. The distance between these points is set by 
@@ -303,8 +302,18 @@ Would expand to
 ```
 again with the same relative distances between elements.
 
-Note: Lattice elements are allowed to overlap but it should be kept in mind that 
-some programs will not be able to handle overlapping fields.
+Lattice elements are allowed to overlap but it should be kept in mind that 
+some programs will not be able to handle overlapping fields. 
+To remove an ambiguity, if two zero length elements are next to each other in a `line`, the order of the
+elements determines the order in which they should tracked through. For example,
+if a line contains the two zero length elements:
+```{code} yaml
+BeamLine:
+  line:
+  - item: markerA
+  - item: markerB
+```
+then the order of tracking will be `markerA` followed by `markerB`.
 
 %---------------------------------------------------------------------------------------------------
 (s:lattice.construct)=
@@ -351,7 +360,7 @@ coordinates at the beginning. Setting `periodic` to `True` simply signals to a p
 it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
 parameters based upon orbit and Twiss parameters set by the User for the beginning of the `Branch`.  
-Indeed, it is sometimes convenient to treat branches as closed even though there is no 
+Indeed, it is sometimes convenient to treat branches as periodic even though there is no 
 closure in the floor coordinate sense.
 For example, when a storage ring has a number of repeating "periods", it may be
-convenient to only use one period in a simulation. 
+convenient, for speed reasons, to calculate the periodic functions using only use one period.
