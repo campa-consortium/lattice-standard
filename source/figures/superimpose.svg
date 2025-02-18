@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 295.6 96.1">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6, .cls-7 {
+        fill: #231f20;
+      }
+
+      .cls-2 {
+        stroke-width: .8px;
+      }
+
+      .cls-7 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 12px;
+      }
+
+      .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #0d9f49;
+      }
+
+      .cls-4 {
+        fill: #2e4ea2;
+      }
+
+      .cls-5 {
+        stroke: #000;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.4, SVG Export Plug-In . SVG Version: 1.2.0 Build 166)  -->
+  <g>
+    <g id="Layer_1">
+      <g>
+        <line class="cls-1" x1="0" y1="55.5" x2="286.7" y2="55.5"/>
+        <polygon class="cls-6" points="284.8 58.3 295.6 55.4 284.8 52.5 284.8 58.3"/>
+      </g>
+      <rect class="cls-4" x="17.4" y="32.3" width="97.4" height="43.3"/>
+      <rect class="cls-3" x="207.8" y="28.6" width="42.3" height="54"/>
+      <g>
+        <line class="cls-5" x1="115.2" y1="6.4" x2="200.4" y2="6.4"/>
+        <polygon points="198.6 8.9 208.4 6.3 198.6 3.7 198.6 8.9"/>
+      </g>
+      <line class="cls-5" x1="207.7" y1="26.6" x2="207.7" y2="3.6"/>
+      <line class="cls-5" x1="114.4" y1="30.3" x2="114.6" y2="2.7"/>
+      <polygon class="cls-8" points="177.9 12.6 142.5 12.6 142.4 1.9 177.7 1.9 177.9 12.6"/>
+      <text class="cls-7" transform="translate(146.4 10)"><tspan x="0" y="0">offset</tspan></text>
+      <text class="cls-7" transform="translate(39.2 88)"><tspan x="0" y="0">base_item</tspan></text>
+      <text class="cls-7" transform="translate(183.7 93.1)"><tspan x="0" y="0">Item being placed</tspan></text>
+      <text class="cls-7" transform="translate(287.2 65.9)"><tspan x="0" y="0">s</tspan></text>
+      <text class="cls-7" transform="translate(36.4 15.2)"><tspan x="0" y="0">from_point</tspan></text>
+      <g>
+        <path class="cls-2" d="M94.5,12.4c3.3-.4,3.8,1.4,5.6,4.2.8,1.3,1.3,2.9,2.3,4.1.8.9,1.8,1.5,2.8,2,1.7.8,3.4,1.3,5.2,1.6"/>
+        <polygon class="cls-6" points="109.5 25.5 114.5 24.8 109.8 22.9 109.5 25.5"/>
+      </g>
+      <text class="cls-7" transform="translate(235.7 10.6)"><tspan x="0" y="0">to_point</tspan></text>
+      <g>
+        <path class="cls-2" d="M234,7.4c-3.3-.6-6.9.8-8.9,3.6-.9,1.3-1.5,2.8-2.6,3.9-.8.8-1.9,1.4-3,1.8-1.8.7-3.5,1.1-5.3,1.3"/>
+        <polygon class="cls-6" points="215 16.6 210.2 18.1 215.1 19.2 215 16.6"/>
+      </g>
+    </g>
+  </g>
+</svg>

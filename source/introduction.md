@@ -1,5 +1,8 @@
+(c:introduction)=
 # Introduction
 
+%---------------------------------------------------------------------------------------------------
+(s:conventions)=
 ## Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
@@ -8,6 +11,8 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 All `keywords` in this standard are case-sensitive.
 
+%---------------------------------------------------------------------------------------------------
+(s:elements)=
 ## Lattice Elements
 
 The basic building block used to describe an accelerator is the lattice \vn{element}. Typically,
@@ -16,47 +21,60 @@ quadrupole, or a diffracting crystal. A lattice element may define a region in s
 distinguished by the presence of (possibly time-varying) electromagnetic fields,
 materials, apertures and other possible engineered structures. However, lattice elements
 are not restricted to being something physical and may, for example, just mark a particular point in space
-(EG: **Marker** elements), or may designate where beam lines intersect (**Fork** elements).
+(EG: `Marker` elements), or may designate where beamlines intersect (`Fork` elements).
 By convention, element names in PALS will be upper camel case.
 
-
+%---------------------------------------------------------------------------------------------------
+(s:branches)=
 ## Lattice Branches
 
-A lattice **branch** holds a collection of lattice elements. 
-There are two types of branches. One type, called a "tracking branch", holds
-an ordered array of lattice elements that gives a
-sequence of elements to be tracked through. A tracking branch can represent something like a
-storage ring, transfer line or Linac.
-In the simplist case, a program can track through the elements one element at a time.
+A lattice `branch` holds an ordered array of lattice elements
+that gives the sequence of elements to be tracked through. 
+A branch can represent something like a storage ring, transfer line or Linac.
+In the simplest case, a program can track through the elements one element at a time.
 However, lattice elements may overlap which will naturally complicate tracking.
 
-The other type of branch, called a "lord" branch, is used to hold lattice elements that help describe:
-- Support elements (Girders)
-- Overlapping elements (Superposition)
-- Situations where an element is transversed multiple times as in an ERL or in opposite directions
-as in a colliding beam machine (Multipass)
-Lord branches will be explained in detail in later sections.
-
+%---------------------------------------------------------------------------------------------------
+(s:lattices)=
 ## Lattices
 
-A **lattice** is the root structure holding the information about a
+A `lattice` is the root structure holding the information about a
 ``machine``. A machine may be as simple as a line of elements (like the elements of a Linac) or
 as complicated as an entire accelerator complex with multiple storage rings, Linacs, transfer
 lines, etc.
 
-Essentially, a **lattice**, has an array of **branches** with each branch describing part of the
+Essentially a `lattice` has an array of `branches` with each branch describing part of the
 machine. Branches can be interconnected to form a unified whole.
-Branches can be interconnected using **Fork** elements. 
-This is used to simulate forking beam lines such as a connections to a transfer line, dump line, or an
-X-ray beam line. The **branch** from which other **branches** fork but is not forked to by any
-other branch is called a **root** branch.
+Branches can be interconnected using `Fork` elements. 
+This is used to simulate forking beamlines such as a connections to a transfer line, dump line, or an
+X-ray beamline.
 
-A lattice may contain multiple **root** branches. For example, a pair of intersecting storage
+Besides `branches`, a lattice will hold information like details of any support girders that are
+present and `multipass` information in the case where elements are transversed multiple times 
+as in an ERL or in opposite directions as in a colliding beam machine.
+
+%---------------------------------------------------------------------------------------------------
+(s:root)=
+## Root branch
+
+The `branch` from which other `branches` fork but is not forked to by any
+other branch is called a `root` branch.
+A lattice may contain multiple `root` branches. For example, a pair of intersecting storage
 rings will generally have two root branches, one for each ring.
 
+%---------------------------------------------------------------------------------------------------
+(s:expansion)=
+## Lattice Expansion
+
+An important concept is `lattice expansion`, which can also be called `branch expansion` or
+`beamline expansion`. Lattice expansion is the process, starting from the `root` `BeamLine`
+of a branch, of constructing the ordered list of lattice elements contained in that branch.
+
+%---------------------------------------------------------------------------------------------------
+(s:syntax)=
 ## Syntax Used in this Document
 
-ALS does not define any particular language to implement the ALS schema. Rather, there are associated
+PALS does not define any particular language to implement the PALS schema. Rather, there are associated
 language specific standards that define grammars for YAML, JSON, Python, etc. Along with these
 associated standards, there are packages that implement translation between lattice files and a representational
 internal format defined by the package.
@@ -69,7 +87,7 @@ For example:
 ```{code} YAML
 Aperture:
   name: ap1
-  x_limit: [-0.03, 0.03]
+  x_limit: [-0.03, 0.04]
 ```
 here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of `x_limit` respectively.
 
@@ -92,18 +110,22 @@ this_group:
   - key2: value2
   - key3: value3
 ```
-The first represents an unordered dictionary of key, value pairs and the second represents an ordered 
-dictionary.
+The first represents an unordered dictionary of key-value pairs and the second represents an ordered 
+dictionary of key-value pairs.
 
+%---------------------------------------------------------------------------------------------------
+(s:names)=
 ## Names
 
-Many constructs in the standard like lattice elements, branches, parameter groups, etc may have
+Many constructs in the standard like lattice elements, branches, parameter groups, etc., may have
 an associated name. To ensure seamless translation to particular languages, all names must conform
 to the following:
 - A name must start with a letter or the underscore character
 - A name cannot start with a number
-- A name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+- A name can only contain alpha-numeric characters and underscores (A-Z, a-z, 0-9, and _ )
 
+%---------------------------------------------------------------------------------------------------
+(s:units)=
 ## Units
 
 The lattice standard uses SI except for energy which uses `eV`.

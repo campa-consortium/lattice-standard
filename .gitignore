@@ -3,3 +3,6 @@ build
 
 # MyST build outputs
 _build
+
+# Other
+server.sh

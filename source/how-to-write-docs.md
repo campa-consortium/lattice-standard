@@ -2,12 +2,13 @@
 
 The documentation uses the [MyST](https://mystmd.org/) markup language and renders to [Sphinx](https://www.sphinx-doc.org) as HTML, PDF or EPUB documents.
 
-In order to build the documentation locally, please create a software environment like this
-
+In order to build the documentation locally, from your particle-accelerator-lattice-standard directory, 
+create a software environment using the commands
 ```{code} bash
-conda env create -y -f conda.yml
-conda activate lattice-standard
+conda env create -y -f conda.yml  # This only needs to be done once.
+conda activate lattice-standard   # Do this with any new window.
 ```
+
 
 and compile via
 
@@ -30,7 +31,8 @@ make latexpdf
 Open the file `build/html/index.html` with your web browser to visualize.
 You are now ready to edit the markdown files that compose the documentation!
 
-If you like to atuomatically rebuild changes on save of edited files, run:
+If you like to atuomatically rebuild changes on save of edited files, 
+run in your particle-accelerator-lattice-standard directory:
 ```{code} bash
 sphinx-autobuild source/ build/html
 ```
